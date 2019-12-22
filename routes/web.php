@@ -1,20 +1,33 @@
 <?php
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
-
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('welcome');
 
-Auth::routes(['register' => true]);
+Auth::routes(['register' => false]);
 
-Route::get('/home', 'HomeController@index')->name('home');
+// Admin route
+Route::middleware('auth')
+    ->namespace('admin')
+    ->group(function () {
+        Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
+
+        Route::prefix('user')
+            ->name('user.')
+            ->middleware('role_or_permission:manage user')
+            ->group(function () {
+                Route::get('listing', 'UserManagementController@index')->name('listing');
+                Route::get('list', 'UserManagementController@list')->name('list');
+
+                Route::get('create', 'UserManagementController@create')->name('create');
+                Route::post('create', 'UserManagementController@store')->name('create');
+
+                Route::prefix('{user}')
+                    ->group(function () {
+                        Route::get('edit', 'UserManagementController@edit')->name('edit');
+                        Route::post('edit', 'UserManagementController@update')->name('edit');
+
+                        Route::delete('delete', 'UserManagementController@destroy')->name('delete');
+                    });
+            });
+    });
