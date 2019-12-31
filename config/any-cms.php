@@ -1,4 +1,5 @@
 <?php
+
 return [
     'project_name' => 'Any CMS',
     'version' => '1.01',

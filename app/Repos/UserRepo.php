@@ -26,13 +26,14 @@ class UserRepo
     public function update(int $id, array $values): bool
     {
         $user = $this->findOrFail($id);
+
         return $user->update($values);
     }
 
     public function delete(int $id): bool
     {
         $user = $this->findOrFail($id);
+
         return $user->delete();
     }
-
 }

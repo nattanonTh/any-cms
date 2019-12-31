@@ -16,7 +16,10 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password', 'tel'
+        'name',
+        'email',
+        'password',
+        'tel',
     ];
 
     /**
@@ -40,5 +43,4 @@ class User extends Authenticatable
     ];
 
     public $timestamps = true;
-
 }

@@ -3,7 +3,6 @@
 namespace App\Http\Requests\Admin\User;
 
 use Illuminate\Foundation\Http\FormRequest;
-use Illuminate\Validation\Rule;
 
 class UserCreateRequest extends FormRequest
 {
@@ -34,7 +33,7 @@ class UserCreateRequest extends FormRequest
                 'required',
                 'string',
                 'exists:roles,name',
-            ]
+            ],
         ];
     }
 }

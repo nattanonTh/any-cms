@@ -1,8 +1,8 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
+use Spatie\Permission\Models\Role;
 
 class AdminPermissionSeeder extends Seeder
 {
@@ -17,7 +17,7 @@ class AdminPermissionSeeder extends Seeder
         $manageUserPermission = Permission::create(['name' => 'manage user']);
 
         $adminRole->syncPermissions([
-            $manageUserPermission
+            $manageUserPermission,
         ]);
     }
 }
