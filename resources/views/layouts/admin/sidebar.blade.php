@@ -33,6 +33,17 @@
                     </a>
                 </li>
                 @endcan
+                @can('manage landing')
+                    <li class="nav-item">
+                        <a href="{{ route('landing.edit') }}" class="nav-link {{ isActiveLink('landing/edit') ? 'active' : '' }}">
+                            <i class="nav-icon fa fa-home"></i>
+                            <p>
+                                Manage Landing
+                            </p>
+                        </a>
+                    </li>
+                @endcan
+
             </ul>
         </nav>
         <!-- /.sidebar-menu -->

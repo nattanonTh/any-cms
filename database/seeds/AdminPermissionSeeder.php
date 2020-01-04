@@ -15,9 +15,11 @@ class AdminPermissionSeeder extends Seeder
     {
         $adminRole = Role::create(['name' => 'admin']);
         $manageUserPermission = Permission::create(['name' => 'manage user']);
+        $manageLandingPermission = Permission::create(['name' => 'manage landing']);
 
         $adminRole->syncPermissions([
             $manageUserPermission,
+            $manageLandingPermission,
         ]);
     }
 }

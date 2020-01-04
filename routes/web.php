@@ -1,6 +1,6 @@
 <?php
 
-Route::namespace('landing')
+Route::namespace('Landing')
     ->group(function () {
         Route::get('/', 'HomeController@index')->name('landing-page');
     });
@@ -33,8 +33,10 @@ Route::middleware('auth')
             });
 
         Route::prefix('landing')
+            ->namespace('Landing')
             ->name('landing.')
             ->middleware('role_or_permission:manage landing')
             ->group(function () {
+                Route::get('edit', 'LandingController@index')->name('edit');
             });
     });
