@@ -9,7 +9,6 @@ jobs:
     - uses: actions/checkout@v2
       with:
         fetch-depth: 2
-    - run: git checkout HEAD^
     - name: Copy .env
       run: php -r "file_exists('.env') || copy('.env.example', '.env');"
     - name: Install Dependencies
