@@ -1,8 +1,9 @@
 <?php
 
-Route::get('/', function () {
-    return view('welcome');
-})->name('welcome');
+Route::namespace('landing')
+    ->group(function () {
+        Route::get('/', 'HomeController@index')->name('landing-page');
+    });
 
 Auth::routes(['register' => false]);
 
@@ -29,5 +30,11 @@ Route::middleware('auth')
 
                         Route::delete('delete', 'UserManagementController@destroy')->name('delete');
                     });
+            });
+
+        Route::prefix('landing')
+            ->name('landing.')
+            ->middleware('role_or_permission:manage landing')
+            ->group(function () {
             });
     });
