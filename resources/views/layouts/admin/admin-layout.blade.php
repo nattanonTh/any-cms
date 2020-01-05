@@ -19,11 +19,15 @@
     <!-- Google Font: Source Sans Pro -->
     <link href="https://fonts.googleapis.com/css?family=Kanit:300&display=swap" rel="stylesheet">
 
+    <!-- summernote -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote-bs4.css" rel="stylesheet">
     <style>
         * {
             font-family: "Kanit", sans-serif;
         }
     </style>
+
+    @yield('style')
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <!-- Site wrapper -->
@@ -92,9 +96,24 @@
 <script src="{{ asset('/dist/js/adminlte.min.js') }}"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="{{ asset('/dist/js/demo.js') }}"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote-bs4.js"></script>
+
 @yield('script')
 </body>
 <script>
+    function previewImage(target, input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function(e) {
+                $(target).attr('src', e.target.result);
+            }
+
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+
     $(function () {
         $(document).on('click', '.delete-btn', function (e) {
             e.preventDefault();
@@ -102,6 +121,7 @@
                 $(this).closest('form').submit();
             }
         });
+
     });
 </script>
 </html>
