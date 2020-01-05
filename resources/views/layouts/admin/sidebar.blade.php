@@ -43,7 +43,16 @@
                         </a>
                     </li>
                 @endcan
-
+                @can('manage blog')
+                    <li class="nav-item">
+                        <a href="{{ route('blog.listing') }}" class="nav-link {{ isActiveLink('blog/*') ? 'active' : '' }}">
+                            <i class="nav-icon fa fa-blog"></i>
+                            <p>
+                                Blog
+                            </p>
+                        </a>
+                    </li>
+                @endcan
             </ul>
         </nav>
         <!-- /.sidebar-menu -->

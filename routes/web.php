@@ -39,4 +39,24 @@ Route::middleware('auth')
             ->group(function () {
                 Route::get('edit', 'LandingController@index')->name('edit');
             });
+
+        Route::prefix('blog')
+            ->namespace('Blog')
+            ->name('blog.')
+            ->middleware('role_or_permission:manage blog')
+            ->group(function () {
+                Route::get('listing', 'BlogController@index')->name('listing');
+                Route::get('list', 'BlogController@list')->name('list');
+
+                Route::get('create', 'BlogController@create')->name('create');
+                Route::post('create', 'BlogController@store')->name('create');
+
+                Route::prefix('{blog}')
+                    ->group(function () {
+                        Route::get('edit', 'UserManagementController@edit')->name('edit');
+                        Route::post('edit', 'UserManagementController@update')->name('edit');
+
+                        Route::delete('delete', 'UserManagementController@destroy')->name('delete');
+                    });
+            });
     });
