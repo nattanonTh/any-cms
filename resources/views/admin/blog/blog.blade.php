@@ -4,6 +4,7 @@
     <style>
         .preview-image {
             max-height: 200px;
+            max-width: 150px;
         }
 
         .width-500 {
@@ -32,10 +33,10 @@
                     <table class="table table-hover" id="datatable-users" width="100%" style="table-layout: fixed;">
                         <thead>
                         <tr>
-                            <th width="50%">Title</th>
-                            <th width="30%">Banner</th>
+                            <th width="30%">Title</th>
+                            <th width="20%">Banner</th>
                             <th>Created At</th>
-                            <th>Action</th>
+                            <th width="30%">Action</th>
                         </tr>
                         </thead>
                         <tbody>

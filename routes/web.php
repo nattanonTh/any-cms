@@ -53,10 +53,10 @@ Route::middleware('auth')
 
                 Route::prefix('{blog}')
                     ->group(function () {
-                        Route::get('edit', 'UserManagementController@edit')->name('edit');
-                        Route::post('edit', 'UserManagementController@update')->name('edit');
+                        Route::get('edit', 'BlogController@edit')->name('edit');
+                        Route::post('edit', 'BlogController@update')->name('edit');
 
-                        Route::delete('delete', 'UserManagementController@destroy')->name('delete');
+                        Route::delete('delete', 'BlogController@destroy')->name('delete');
                     });
             });
     });

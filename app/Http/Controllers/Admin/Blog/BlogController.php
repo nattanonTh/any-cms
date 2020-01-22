@@ -9,6 +9,7 @@ use App\Models\Blog;
 use App\Repos\BlogRepo;
 use App\Services\UploadImageService;
 use Yajra\DataTables\Facades\DataTables;
+use Illuminate\Support\Facades\Storage;
 
 class BlogController extends Controller
 {
@@ -33,7 +34,7 @@ class BlogController extends Controller
 
     public function store(CreateBlogRequest $request)
     {
-        $values = $request->validated();
+        $values = $request->all();
         $files = $request->file('cover');
         if ($request->hasFile('cover')) {
             $paths = $this->uploadImageService->uploadImagesWithThumbnail([$files], config('blog.cover_path'));
@@ -45,27 +46,30 @@ class BlogController extends Controller
         return redirect(route('blog.listing'));
     }
 
-    public function edit(Blog $user)
+    public function edit(Blog $blog)
     {
-//        $roles = Role::all();
-//
-//        return view('admin.users.edit', compact('user', 'roles'));
+       return view('admin.blog.edit', compact('blog'));
     }
 
-    public function update($request, Blog $blog)
+    public function update(CreateBlogRequest $request, Blog $blog)
     {
-//        $this->userRepo->update($user->id, $request->validated());
-//        $user->removeRole($user->getRoleNames()->first());
-//        $user->assignRole($request->input('role'));
-//
-//        return redirect(route('user.listing'));
+       
+       $files = $request->file('cover');
+        if ($request->hasFile('cover')) {
+            Storage::delete($blog->image_path);
+            $paths = $this->uploadImageService->uploadImagesWithThumbnail([$files], config('blog.cover_path'));
+            $values['image_path'] = $paths->get('images')[0];
+            $values['thumbnail_path'] = $paths->get('thumbnails')[0];
+        }
+       $this->blogRepo->update($blog->id, $values);
+       return redirect(route('blog.listing'));
     }
 
     public function destroy(Blog $blog)
     {
         $this->blogRepo->delete($blog->id);
 
-        return redirect(route('user.listing'));
+        return redirect(route('blog.listing'));
     }
 
     public function list()
