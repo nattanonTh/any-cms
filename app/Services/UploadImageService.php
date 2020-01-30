@@ -24,4 +24,15 @@ class UploadImageService
 
         return Collect(compact('images', 'thumbnails'));
     }
+
+    public function uploadImages(array $files, string $path): Collection
+    {
+        $images = [];
+        foreach ($files as $index => $file) {
+            $fileName = $file->hashName();
+            $images[] = $file->storeAs($path, $fileName);
+        }
+
+        return Collect(compact('images'));
+    }
 }

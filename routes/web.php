@@ -1,8 +1,8 @@
 <?php
 
 Route::get('/', function () {
-    return view('welcome');
-})->name('welcome');
+    return redirect('login');
+});
 
 Auth::routes(['register' => false]);
 
@@ -12,22 +12,21 @@ Route::middleware('auth')
     ->group(function () {
         Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
 
-        Route::prefix('user')
-            ->name('user.')
-            ->middleware('role_or_permission:manage user')
+        Route::prefix('member')
+            ->name('member.')
             ->group(function () {
-                Route::get('listing', 'UserManagementController@index')->name('listing');
-                Route::get('list', 'UserManagementController@list')->name('list');
+                Route::get('listing', 'MemberController@index')->name('listing');
+                Route::get('list', 'MemberController@list')->name('list');
 
-                Route::get('create', 'UserManagementController@create')->name('create');
-                Route::post('create', 'UserManagementController@store')->name('create');
+                Route::get('create', 'MemberController@create')->name('create');
+                Route::post('create', 'MemberController@store')->name('create');
 
-                Route::prefix('{user}')
+                Route::prefix('{member}')
                     ->group(function () {
-                        Route::get('edit', 'UserManagementController@edit')->name('edit');
-                        Route::post('edit', 'UserManagementController@update')->name('edit');
+                        Route::get('edit', 'MemberController@edit')->name('edit');
+                        Route::post('edit', 'MemberController@update')->name('edit');
 
-                        Route::delete('delete', 'UserManagementController@destroy')->name('delete');
+                        Route::delete('delete', 'MemberController@destroy')->name('delete');
                     });
             });
     });

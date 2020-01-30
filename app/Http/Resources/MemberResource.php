@@ -4,7 +4,7 @@ namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class UserResource extends JsonResource
+class MemberResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -17,13 +17,14 @@ class UserResource extends JsonResource
         return [
             'id' => $this->id,
             'name' => $this->name,
-            'email' => $this->email,
-            'tel' => $this->tel,
+            'surname' => $this->surname,
+            'id_card' => $this->id_card,
+            'mobile_no' => $this->mobile_no,
             'created_at' => $this->created_at->format('Y-m-d H:i'),
             'updated_at' => $this->updated_at->format('Y-m-d H:i'),
-            'role' => ucfirst($this->getRoleNames()->first()),
-            'edit_link' => route('user.edit', ['user' => $this->id]),
-            'delete_link' => route('user.delete', ['user' => $this->id]),
+            'status' => $this->status,
+            'edit_link' => route('member.edit', ['member' => $this->id]),
+            'delete_link' => route('member.delete', ['member' => $this->id]),
         ];
     }
 }

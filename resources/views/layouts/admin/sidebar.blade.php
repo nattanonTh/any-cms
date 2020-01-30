@@ -23,16 +23,14 @@
                         </p>
                     </a>
                 </li>
-                @can('manage user')
                 <li class="nav-item">
-                    <a href="{{ route('user.listing') }}" class="nav-link {{ isActiveLink('user/*') ? 'active' : '' }}">
+                    <a href="{{ route('member.listing') }}" class="nav-link {{ isActiveLink('member/*') ? 'active' : '' }}">
                         <i class="nav-icon fa fa-user"></i>
                         <p>
-                            Manage Users
+                            Manage Members
                         </p>
                     </a>
                 </li>
-                @endcan
             </ul>
         </nav>
         <!-- /.sidebar-menu -->

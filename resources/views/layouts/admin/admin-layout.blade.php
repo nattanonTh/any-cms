@@ -8,6 +8,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="{{ asset('/plugins/fontawesome-free/css/all.min.css') }}">
+    <!-- daterange picker -->
+    <link rel="stylesheet" href="{{ asset('plugins/daterangepicker/daterangepicker.css') }}">
     <!-- Ionicons -->
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
     <!-- DataTables -->
@@ -65,7 +67,7 @@
     @include('layouts.admin.sidebar')
 
     <!-- Content Wrapper. Contains page content -->
-    <div class="content-wrapper">
+    <div class="content-wrapper pb-3">
 
         <!-- Main content -->
         @yield('content')
@@ -92,6 +94,12 @@
 <!-- DataTables -->
 <script src="{{ asset('/plugins/datatables/jquery.dataTables.js') }}"></script>
 <script src="{{ asset('/plugins/datatables-bs4/js/dataTables.bootstrap4.js') }}"></script>
+<script src="{{ asset('/plugins/inputmask/min/jquery.inputmask.bundle.min.js') }}"></script>
+
+<script src="{{ asset('/plugins/moment/moment.min.js') }}"></script>
+<!-- date-range-picker -->
+<script src="{{ asset('/plugins/daterangepicker/daterangepicker.js') }}"></script>
+
 <!-- AdminLTE App -->
 <script src="{{ asset('/dist/js/adminlte.min.js') }}"></script>
 <!-- AdminLTE for demo purposes -->

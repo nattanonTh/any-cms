@@ -20,7 +20,7 @@
 <body class="hold-transition login-page">
 <div class="login-box">
     <div class="login-logo">
-        <a href="{{ route('welcome') }}"><b>Any</b>CMS</a>
+        <a href="#"><b>Wat name</b></a>
     </div>
     <!-- /.login-logo -->
     <div class="card">
