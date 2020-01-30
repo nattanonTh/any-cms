@@ -45,7 +45,7 @@
 @section('script')
     <script>
         $(function () {
-            $('#datatable-users').DataTable({
+            $('#datatable-members').DataTable({
                 processing: true,
                 ordering: false,
                 serverSide: true,

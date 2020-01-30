@@ -4,7 +4,7 @@ Route::get('/', function () {
     return redirect('login');
 });
 
-Auth::routes(['register' => false]);
+Auth::routes(['register' => true]);
 
 // Admin route
 Route::middleware('auth')

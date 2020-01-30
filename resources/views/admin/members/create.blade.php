@@ -135,14 +135,14 @@
                                 <label for="profile" class="preview">Profile</label>
                                 <div class="input-group">
                                     <div class="custom-file">
-                                        <input type="file" class="custom-file-input" id="profile" name="profile">
+                                        <input type="file" class="custom-file-input" id="profile_path" name="profile_path">
                                         <label class="custom-file-label" for="profile">Choose file</label>
                                     </div>
                                     <div class="input-group-append">
                                         <span class="input-group-text" id="">Upload</span>
                                     </div>
                                 </div>
-                                @error('profile')
+                                @error('profile_path')
                                 <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>

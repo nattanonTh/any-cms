@@ -26,12 +26,12 @@ class MemberController extends Controller
 
     public function index()
     {
-        return view('admin.users.users');
+        return view('admin.members.users');
     }
 
     public function create()
     {
-        return view('admin.users.create');
+        return view('admin.members.create');
     }
 
     public function store(MemberCreateRequest $request)
@@ -52,7 +52,7 @@ class MemberController extends Controller
 
     public function edit(Member $member)
     {
-        return view('admin.users.edit', compact('member'));
+        return view('admin.members.edit', compact('member'));
     }
 
     public function update(MemberEditRequest $request, Member $member)

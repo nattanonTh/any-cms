@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddMoreInfoToUsers extends Migration
+class CreateEventTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,12 @@ class AddMoreInfoToUsers extends Migration
      */
     public function up()
     {
-        Schema::table('users', function (Blueprint $table) {
-            $table->string('tel')->nullable(true)->after('email');
+        Schema::create('event', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('event_name');
+            $table->text('event_schedule');
+            $table->timestamps();
+            $table->softDeletes();
         });
     }
 
@@ -25,9 +29,6 @@ class AddMoreInfoToUsers extends Migration
      */
     public function down()
     {
-        Schema::table('users', function (Blueprint $table) {
-            //
-            $table->dropColumn('tel');
-        });
+        Schema::dropIfExists('event');
     }
 }
