@@ -11,7 +11,7 @@
                             <h3 class="card-title">Active members</h3>
                         </div>
                         <div class="col-sm-6 text-right">
-                            <a href="{{ route('member.create') }}" class="btn btn-{!! config('any-cms.theme-btn') !!}">Add member</a>
+                            <a href="{{ route('member.create') }}" class="btn btn-{!! config('any_cms.theme-btn') !!}">Add member</a>
                         </div>
                     </div>
                 </div>

@@ -178,7 +178,7 @@
             <div class="row">
                 <div class="col-md-10 offset-1">
                     <a href="{{ url()->previous() }}" class="btn btn-secondary">Cancel</a>
-                    <input type="submit" value="Save Changes" class="btn btn-{!! config('any-cms.theme-btn') !!} float-right">
+                    <input type="submit" value="Save Changes" class="btn btn-{!! config('any_cms.theme-btn') !!} float-right">
                 </div>
             </div>
         </form>

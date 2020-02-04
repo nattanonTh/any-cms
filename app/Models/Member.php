@@ -23,7 +23,7 @@ class Member extends Model
         'emergency_contact_relation',
         'congenital_disease',
         'profile_path',
-        'status_id',
+        'status',
     ];
 
     public function attention(): HasMany

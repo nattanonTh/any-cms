@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>{{ config('any-cms.project_name') }}</title>
+    <title>{{ config('any_cms.project_name') }}</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Font Awesome -->
@@ -64,7 +64,7 @@
                     </div>
                     <!-- /.col -->
                     <div class="col-4">
-                        <button type="submit" class="btn btn-{!! config('any-cms.theme-btn') !!} btn-block">Sign In</button>
+                        <button type="submit" class="btn btn-{!! config('any_cms.theme-btn') !!} btn-block">Sign In</button>
                     </div>
                     <!-- /.col -->
                 </div>

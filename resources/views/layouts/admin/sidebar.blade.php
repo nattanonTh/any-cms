@@ -1,12 +1,12 @@
 <!-- Main Sidebar Container -->
-<aside class="main-sidebar elevation-4 sidebar-light-{!! config('any-cms.theme') !!}">
+<aside class="main-sidebar elevation-4 sidebar-light-{!! config('any_cms.theme') !!}">
     <!-- Brand Logo -->
     <a href="#" class="brand-link brand-link navbar-white">
         <img src="../../dist/img/AdminLTELogo.png"
              alt="AdminLTE Logo"
              class="brand-image img-circle elevation-3"
              style="opacity: .8">
-        <span class="brand-text font-weight-light"><b>{{ config('any-cms.project_name') }}</b></span>
+        <span class="brand-text font-weight-light"><b>{{ config('any_cms.project_name') }}</b></span>
     </a>
 
     <!-- Sidebar -->

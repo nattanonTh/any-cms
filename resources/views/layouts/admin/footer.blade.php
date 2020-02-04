@@ -1,6 +1,6 @@
 <footer class="main-footer">
     <div class="float-right d-none d-sm-block">
-        <b>Version</b> {{ config('any-cms.version') }}
+        <b>Version</b> {{ config('any_cms.version') }}
     </div>
     <strong>Copyright &copy; 2014-2019 <a href="{{ route('dashboard') }}">AnyCMS</a>.</strong> All rights
     reserved.

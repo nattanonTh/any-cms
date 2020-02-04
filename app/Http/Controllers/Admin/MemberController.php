@@ -36,14 +36,19 @@ class MemberController extends Controller
 
     public function store(MemberCreateRequest $request)
     {
-        $values = $request->validated();
+        $values = $request->merge([
+            'profile_path' => '',
+            'status_id' => config('any_cms.member_status.normal'),
+        ])->all();
         $values['birth_date'] = Carbon::createFromFormat('d/m/Y', $values['birth_date'])->format('Y-m-d');
 
         // upload profile image
         $member = $this->memberRepo->create($values);
 
-        $paths = $this->uploadImageService->uploadImages([$request->file('profile')], 'upload/' . $member->id);
-        $values['profile'] = $paths->get('images')[0];
+        if ($request->has('profile_path')) {
+            $paths = $this->uploadImageService->uploadImages([$request->file('profile_path')], 'upload/' . $member->id);
+            $values['profile_path'] = $paths->get('images')[0];
+        }
 
         $this->memberRepo->update($member->id, $values);
 
@@ -81,7 +86,7 @@ class MemberController extends Controller
     public function list()
     {
         return DataTables::resource(MemberResource::collection(
-            Member::all()->except(config('any-cms.admin_user_id'))
+            Member::all()->except(config('any_cms.admin_user_id'))
         ))->toJson();
     }
 }

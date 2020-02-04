@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>{{ config('any-cms.project_name') }}</title>
+    <title>{{ config('any_cms.project_name') }}</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Font Awesome -->
@@ -35,7 +35,7 @@
 <!-- Site wrapper -->
 <div class="wrapper">
     <!-- Navbar -->
-    <nav class="main-header navbar navbar-expand navbar-dark navbar-{!! config('any-cms.theme') !!}">
+    <nav class="main-header navbar navbar-expand navbar-dark navbar-{!! config('any_cms.theme') !!}">
         <!-- Left navbar links -->
         <ul class="navbar-nav">
             <li class="nav-item">
