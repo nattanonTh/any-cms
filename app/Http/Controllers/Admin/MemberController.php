@@ -38,7 +38,7 @@ class MemberController extends Controller
     {
         $values = $request->merge([
             'profile_path' => '',
-            'status_id' => config('any_cms.member_status.normal'),
+            'status' => config('any_cms.member_status.normal'),
         ])->all();
         $values['birth_date'] = Carbon::createFromFormat('d/m/Y', $values['birth_date'])->format('Y-m-d');
 
@@ -62,13 +62,13 @@ class MemberController extends Controller
 
     public function update(MemberEditRequest $request, Member $member)
     {
-        $values = $request->validated();
+        $values = $request->all();
         $values['birth_date'] = Carbon::createFromFormat('d/m/Y', $values['birth_date'])->format('Y-m-d');
 
-        if ($request->hasFile('profile')) {
-            Storage::delete($member->profile);
+        if ($request->hasFile('profile_path')) {
+            Storage::delete($member->profile_path);
             $paths = $this->uploadImageService->uploadImages([$request->file('profile')], 'upload/' . $member->id);
-            $values['profile'] = $paths->get('images')[0];
+            $values['profile_path'] = $paths->get('images')[0];
         }
 
         $this->memberRepo->update($member->id, $values);
@@ -78,6 +78,7 @@ class MemberController extends Controller
 
     public function destroy(Member $member)
     {
+        Storage::delete($member->profile_path);
         $this->memberRepo->delete($member->id);
 
         return redirect()->to(route('member.listing'));
@@ -86,7 +87,7 @@ class MemberController extends Controller
     public function list()
     {
         return DataTables::resource(MemberResource::collection(
-            Member::all()->except(config('any_cms.admin_user_id'))
+            Member::all()
         ))->toJson();
     }
 }

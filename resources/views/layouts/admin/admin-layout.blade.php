@@ -104,6 +104,7 @@
 <script src="{{ asset('/dist/js/adminlte.min.js') }}"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="{{ asset('/dist/js/demo.js') }}"></script>
+<script src="{{ asset('/js/webcam.min.js') }}"></script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote-bs4.js"></script>
 

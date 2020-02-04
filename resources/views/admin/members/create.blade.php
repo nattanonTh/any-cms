@@ -142,19 +142,15 @@
                                         <span class="input-group-text" id="">Upload</span>
                                     </div>
                                 </div>
+                                <div id="profile_webcam"></div>
+                                <input type=button value="Take Snapshot" onClick="take_snapshot()">
                                 @error('profile_path')
                                 <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
                             </div>
-                            <img id="preview" src="{{ asset('images/admin/preview.jpg') }}" alt="preview  image"
-                                 style="
-                                    display: block;
-                                    margin-left: auto;
-                                    margin-right: auto;
-                                    width: 50%;
-                                    "/>
+                            <div id="results"></div>
                         </div>
                         <!-- /.card-body -->
                     </div>
@@ -174,6 +170,24 @@
 @section('script')
     <script>
         $(function() {
+            Webcam.set({
+                width: 320,
+                height: 240,
+                image_format: 'jpeg',
+                jpeg_quality: 90
+            });
+            Webcam.attach( '#profile_webcam' );
+
+            function take_snapshot() {
+                // take snapshot and get image data
+                Webcam.snap( function(data_uri) {
+                    // display results in page
+                    document.getElementById('results').innerHTML =
+                        '<h2>Here is your image:</h2>' +
+                        '<img src="'+data_uri+'"/>';
+                } );
+            }
+
             $('#birth_date').inputmask('dd/mm/yyyy', { 'placeholder': 'dd/mm/yyyy' });
 
             $("#profile").on("change", function() {

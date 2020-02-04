@@ -17,7 +17,7 @@
                 </div>
                 <!-- /.card-header -->
                 <div class="card-body">
-                    <table class="table table-hover" id="datatable-users" width="100%">
+                    <table class="table table-hover" id="datatable-members" width="100%">
                         <thead>
                         <tr>
                             <th>Name</th>
