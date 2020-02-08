@@ -35,7 +35,7 @@ class MemberEditRequest extends FormRequest
             'emergency_contact_mobile' => 'required|string',
             'emergency_contact_relation' => 'required|string',
             'congenital_disease' => 'required|string',
-            'profile' => 'image|nullable',
+            'image' => 'string|nullable',
             'status' => 'required',
         ];
     }

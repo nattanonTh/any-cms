@@ -132,25 +132,19 @@
                                 @enderror
                             </div>
                             <div class="form-group">
-                                <label for="profile" class="preview">Profile</label>
-                                <div class="input-group">
-                                    <div class="custom-file">
-                                        <input type="file" class="custom-file-input" id="profile_path" name="profile_path">
-                                        <label class="custom-file-label" for="profile">Choose file</label>
-                                    </div>
-                                    <div class="input-group-append">
-                                        <span class="input-group-text" id="">Upload</span>
-                                    </div>
-                                </div>
+                                <label for="profile" class="preview">Image</label>
                                 <div id="profile_webcam"></div>
-                                <input type=button value="Take Snapshot" onClick="take_snapshot()">
-                                @error('profile_path')
+                                <input type=button value="Take Snapshot" id="snap">
+                                <input type="hidden" id="image" name="image">
+                                @error('image')
                                 <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
                             </div>
-                            <div id="results"></div>
+                            <div>
+                                <div id="results"></div>
+                            </div>
                         </div>
                         <!-- /.card-body -->
                     </div>
@@ -178,15 +172,12 @@
             });
             Webcam.attach( '#profile_webcam' );
 
-            function take_snapshot() {
-                // take snapshot and get image data
+            $('#snap').click(function () {
                 Webcam.snap( function(data_uri) {
-                    // display results in page
-                    document.getElementById('results').innerHTML =
-                        '<h2>Here is your image:</h2>' +
-                        '<img src="'+data_uri+'"/>';
+                    document.getElementById('results').innerHTML = '<img src="'+data_uri+'"/>';
+                    $('#image').val(data_uri);
                 } );
-            }
+            });
 
             $('#birth_date').inputmask('dd/mm/yyyy', { 'placeholder': 'dd/mm/yyyy' });
 

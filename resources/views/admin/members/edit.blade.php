@@ -132,29 +132,21 @@
                                 @enderror
                             </div>
                             <div class="form-group">
-                                <label for="profile" class="preview">Profile</label>
-                                <div class="input-group">
-                                    <div class="custom-file">
-                                        <input type="file" class="custom-file-input" id="profile" name="profile">
-                                        <label class="custom-file-label" for="profile">Choose file</label>
-                                    </div>
-                                    <div class="input-group-append">
-                                        <span class="input-group-text" id="">Upload</span>
-                                    </div>
-                                </div>
-                                @error('profile')
+                                <label for="profile" class="preview">Image</label>
+                                <div id="profile_webcam"></div>
+                                <input type=button value="Take Snapshot" id="snap">
+                                <input type="hidden" id="image" name="image">
+                                @error('image')
                                 <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
                             </div>
-                            <img id="preview" src="{{ asset($member->profile) }}" alt="preview  image"
-                                 style="
-                                    display: block;
-                                    margin-left: auto;
-                                    margin-right: auto;
-                                    width: 50%;
-                                    "/>
+                            <div>
+                                <div id="results">
+                                    <img src="{!! $member->image !!}"/>
+                                </div>
+                            </div>
                             <div class="form-group">
                                 <label for="status">Status</label>
                                 <select name="status" id="status" class="form-control @error('status') is-invalid @enderror">
@@ -191,6 +183,21 @@
             $('#birth_date').inputmask('dd/mm/yyyy', { 'placeholder': 'dd/mm/yyyy' });
 
             $('#status').val('{!! $member->status !!}');
+
+            Webcam.set({
+                width: 320,
+                height: 240,
+                image_format: 'jpeg',
+                jpeg_quality: 90
+            });
+            Webcam.attach( '#profile_webcam' );
+
+            $('#snap').click(function () {
+                Webcam.snap( function(data_uri) {
+                    document.getElementById('results').innerHTML = '<img src="'+data_uri+'"/>';
+                    $('#image').val(data_uri);
+                } );
+            });
 
             $("#profile").on("change", function() {
                 if(this.files[0].size > 5048580){

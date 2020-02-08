@@ -37,20 +37,12 @@ class MemberController extends Controller
     public function store(MemberCreateRequest $request)
     {
         $values = $request->merge([
-            'profile_path' => '',
             'status' => config('any_cms.member_status.normal'),
         ])->all();
         $values['birth_date'] = Carbon::createFromFormat('d/m/Y', $values['birth_date'])->format('Y-m-d');
 
         // upload profile image
         $member = $this->memberRepo->create($values);
-
-        if ($request->has('profile_path')) {
-            $paths = $this->uploadImageService->uploadImages([$request->file('profile_path')], 'upload/' . $member->id);
-            $values['profile_path'] = $paths->get('images')[0];
-        }
-
-        $this->memberRepo->update($member->id, $values);
 
         return redirect()->to(route('member.listing'));
     }
@@ -64,12 +56,6 @@ class MemberController extends Controller
     {
         $values = $request->all();
         $values['birth_date'] = Carbon::createFromFormat('d/m/Y', $values['birth_date'])->format('Y-m-d');
-
-        if ($request->hasFile('profile_path')) {
-            Storage::delete($member->profile_path);
-            $paths = $this->uploadImageService->uploadImages([$request->file('profile')], 'upload/' . $member->id);
-            $values['profile_path'] = $paths->get('images')[0];
-        }
 
         $this->memberRepo->update($member->id, $values);
 

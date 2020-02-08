@@ -21,7 +21,6 @@ class AddMemberTable extends Migration
             $table->string('emergency_contact_mobile');
             $table->string('emergency_contact_relation');
             $table->text('congenital_disease');
-            $table->string('profile_path')->nullable();
             $table->string('status');
             $table->timestamps();
             $table->softDeletes();

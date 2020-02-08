@@ -22,8 +22,8 @@ class Member extends Model
         'emergency_contact_mobile',
         'emergency_contact_relation',
         'congenital_disease',
-        'profile_path',
         'status',
+        'image',
     ];
 
     public function attention(): HasMany
