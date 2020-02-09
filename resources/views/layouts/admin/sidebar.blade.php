@@ -1,7 +1,7 @@
 <!-- Main Sidebar Container -->
 <aside class="main-sidebar elevation-4 sidebar-light-{!! config('any-cms.theme') !!}">
     <!-- Brand Logo -->
-    <a href="#" class="brand-link brand-link navbar-white">
+    <a href="{{ route('landing-page') }}" target="_blank" class="brand-link brand-link navbar-white">
         <img src="../../dist/img/AdminLTELogo.png"
              alt="AdminLTE Logo"
              class="brand-image img-circle elevation-3"
@@ -49,6 +49,16 @@
                             <i class="nav-icon fa fa-blog"></i>
                             <p>
                                 Blog
+                            </p>
+                        </a>
+                    </li>
+                @endcan
+                @can('manage promotion')
+                    <li class="nav-item">
+                        <a href="{{ route('promotion.listing') }}" class="nav-link {{ isActiveLink('promotion/*') ? 'active' : '' }}">
+                            <i class="nav-icon fa fa-address-book"></i>
+                            <p>
+                                Promotion
                             </p>
                         </a>
                     </li>

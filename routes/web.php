@@ -59,4 +59,24 @@ Route::middleware('auth')
                         Route::delete('delete', 'BlogController@destroy')->name('delete');
                     });
             });
+
+        Route::prefix('promotion')
+            ->namespace('Promotion')
+            ->name('promotion.')
+            ->middleware('role_or_permission:manage promotion')
+            ->group(function () {
+                Route::get('listing', 'PromotionController@index')->name('listing');
+                Route::get('list', 'PromotionController@list')->name('list');
+
+                Route::get('create', 'PromotionController@create')->name('create');
+                Route::post('create', 'PromotionController@store')->name('create');
+
+                Route::prefix('{promotion}')
+                    ->group(function () {
+                        Route::get('edit', 'PromotionController@edit')->name('edit');
+                        Route::post('edit', 'PromotionController@update')->name('edit');
+
+                        Route::delete('delete', 'PromotionController@destroy')->name('delete');
+                    });
+            });
     });
