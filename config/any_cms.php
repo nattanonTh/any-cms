@@ -3,8 +3,8 @@
 return [
     'project_name' => 'Wat name',
     'version' => '1.01',
-    'theme' => 'dark',
-    'theme-btn' => 'dark',
+    'theme' => 'primary',
+    'theme-btn' => 'primary',
     'admin_user_id' => 1,
 
     'member_status' => [

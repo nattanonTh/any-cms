@@ -19,8 +19,8 @@ class AddMemberTable extends Migration
             $table->string('social_id');
             $table->string('emergency_contact_name');
             $table->string('emergency_contact_mobile');
-            $table->string('emergency_contact_relation');
-            $table->text('congenital_disease');
+            $table->string('emergency_contact_relation')->nullable();
+            $table->text('congenital_disease')->nullable();
             $table->string('status');
             $table->timestamps();
             $table->softDeletes();

@@ -31,6 +31,14 @@
                         </p>
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a href="{{ route('event.listing') }}" class="nav-link {{ isActiveLink('event/*') ? 'active' : '' }}">
+                        <i class="nav-icon fa fa-level-up-alt"></i>
+                        <p>
+                            Manage Event
+                        </p>
+                    </a>
+                </li>
             </ul>
         </nav>
         <!-- /.sidebar-menu -->

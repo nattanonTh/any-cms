@@ -7,21 +7,22 @@ use App\Http\Requests\Admin\Member\MemberCreateRequest;
 use App\Http\Requests\Admin\Member\MemberEditRequest;
 use App\Http\Resources\MemberResource;
 use App\Models\Member;
+use App\Repos\EventRepo;
 use App\Repos\MemberRepo;
 use App\Services\UploadImageService;
 use Carbon\Carbon;
-use Illuminate\Support\Facades\Storage;
+use Illuminate\Http\RedirectResponse;use Illuminate\Support\Facades\Storage;
 use Yajra\DataTables\Facades\DataTables;
 
 class MemberController extends Controller
 {
     protected $memberRepo;
-    protected $uploadImageService;
+    protected $eventRepo;
 
-    public function __construct(MemberRepo $memberRepo, UploadImageService $uploadImageService)
+    public function __construct(MemberRepo $memberRepo, EventRepo $eventRepo)
     {
         $this->memberRepo = $memberRepo;
-        $this->uploadImageService = $uploadImageService;
+        $this->eventRepo = $eventRepo;
     }
 
     public function index()
@@ -42,7 +43,7 @@ class MemberController extends Controller
         $values['birth_date'] = Carbon::createFromFormat('d/m/Y', $values['birth_date'])->format('Y-m-d');
 
         // upload profile image
-        $member = $this->memberRepo->create($values);
+        $this->memberRepo->create($values);
 
         return redirect()->to(route('member.listing'));
     }
@@ -54,7 +55,10 @@ class MemberController extends Controller
 
     public function update(MemberEditRequest $request, Member $member)
     {
-        $values = $request->all();
+        $values = $request->except('image');
+        if (!is_null($request->input('image'))) {
+            $values['image'] = $request->input('image');
+        }
         $values['birth_date'] = Carbon::createFromFormat('d/m/Y', $values['birth_date'])->format('Y-m-d');
 
         $this->memberRepo->update($member->id, $values);
@@ -64,10 +68,16 @@ class MemberController extends Controller
 
     public function destroy(Member $member)
     {
-        Storage::delete($member->profile_path);
         $this->memberRepo->delete($member->id);
 
         return redirect()->to(route('member.listing'));
+    }
+
+    public function view(Member $member)
+    {
+        $events = $this->eventRepo->all();
+        $date = Carbon::now()->format('d/m/Y');
+        return view('admin.members.view', compact('member', 'events', 'date'));
     }
 
     public function list()

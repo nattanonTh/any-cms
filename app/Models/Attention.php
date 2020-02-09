@@ -10,6 +10,8 @@ class Attention extends Model
 {
     use SoftDeletes;
 
+    protected $table = 'attention';
+
     protected $fillable = [
         'event_id',
         'member_id',

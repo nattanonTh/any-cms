@@ -26,6 +26,8 @@ class MemberCreateRequest extends FormRequest
         return [
             'name' => 'required|string',
             'surname' => 'required|string',
+            'sex' => 'required|string',
+            'age' => 'required|integer',
             'id_card' => 'required|string',
             'birth_date' => 'required',
             'address' => 'required|string',
@@ -33,8 +35,8 @@ class MemberCreateRequest extends FormRequest
             'social_id' => 'required|string',
             'emergency_contact_name' => 'required|string',
             'emergency_contact_mobile' => 'required|string',
-            'emergency_contact_relation' => 'required|string',
-            'congenital_disease' => 'required|string',
+            'emergency_contact_relation' => 'nullable|string',
+            'congenital_disease' => 'nullable|string',
             'image' => 'string',
         ];
     }

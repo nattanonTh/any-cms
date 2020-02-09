@@ -34,6 +34,27 @@
                                 @enderror
                             </div>
                             <div class="form-group">
+                                <label for="surname">Age</label>
+                                <input type="number" id="age" name="age" class="form-control @error('age') is-invalid @enderror" value="" placeholder="Age" required min="1">
+                                @error('age')
+                                <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                            <div class="form-group">
+                                <label for="surname">Gender</label>
+                                <select name="sex" id="sex" class="form-control @error('sex') is-invalid @enderror">
+                                    <option value="ชาย">ชาย</option>
+                                    <option value="หญิง">หญิง</option>
+                                </select>
+                                @error('sex')
+                                <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                            <div class="form-group">
                                 <label for="id_card">ID Card</label>
                                 <input type="text" id="id_card" name="id_card" class="form-control @error('id_card') is-invalid @enderror" value="" placeholder="ID Card" required>
                                 @error('id_card')

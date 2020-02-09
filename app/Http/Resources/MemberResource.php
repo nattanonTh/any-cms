@@ -25,6 +25,7 @@ class MemberResource extends JsonResource
             'status' => $this->status,
             'edit_link' => route('member.edit', ['member' => $this->id]),
             'delete_link' => route('member.delete', ['member' => $this->id]),
+            'view_link' => route('member.view', ['member' => $this->id]),
         ];
     }
 }

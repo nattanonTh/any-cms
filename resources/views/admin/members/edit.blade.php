@@ -34,6 +34,27 @@
                                 @enderror
                             </div>
                             <div class="form-group">
+                                <label for="surname">Age</label>
+                                <input type="number" id="age" name="age" class="form-control @error('age') is-invalid @enderror" value="{{$member->age}}" placeholder="Age" required min="1">
+                                @error('age')
+                                <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                            <div class="form-group">
+                                <label for="surname">Gender</label>
+                                <select name="sex" id="sex" class="form-control @error('sex') is-invalid @enderror">
+                                    <option value="ชาย" @if($member->sex == 'ชาย') selected @endif>ชาย</option>
+                                    <option value="หญิง" @if($member->sex == 'หญิง') selected @endif>หญิง</option>
+                                </select>
+                                @error('sex')
+                                <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                            <div class="form-group">
                                 <label for="id_card">ID Card</label>
                                 <input type="text" id="id_card" name="id_card" class="form-control @error('id_card') is-invalid @enderror" value="{!! $member->id_card !!}" placeholder="ID Card" required>
                                 @error('id_card')
@@ -54,7 +75,7 @@
                                            id="birth_date"
                                            name="birth_date"
                                            class="form-control @error('birth_date') is-invalid @enderror"
-                                           value="{!! date_ui($member->birth_date) !!}"
+                                           value="{!! date_ui($member->birth_date->format('Y-m-d')) !!}"
                                            placeholder="Birth date"
                                            data-inputmask-alias="datetime"
                                            data-inputmask-inputformat="dd/mm/yyyy"

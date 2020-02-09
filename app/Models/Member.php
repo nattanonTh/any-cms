@@ -13,6 +13,8 @@ class Member extends Model
     public $fillable = [
         'name',
         'surname',
+        'age',
+        'sex',
         'id_card',
         'birth_date',
         'mobile_no',
@@ -24,6 +26,10 @@ class Member extends Model
         'congenital_disease',
         'status',
         'image',
+    ];
+
+    protected $casts = [
+        'birth_date' => 'datetime',
     ];
 
     public function attention(): HasMany

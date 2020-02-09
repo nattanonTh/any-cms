@@ -64,7 +64,7 @@
                     "render": function (data, type, row, meta) {
                         return `@include("layouts.admin.data-table-button-group", [
                             'edit' => "`+ row.edit_link +`",
-                            'view' => false,
+                            'view' => "`+ row.view_link +`",
                             'delete' => "`+ row.delete_link +`",
                         ])`;
                     }

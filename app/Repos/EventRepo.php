@@ -3,6 +3,7 @@
 namespace App\Repos;
 
 use App\Models\Event;
+use Illuminate\Database\Eloquent\Collection;
 
 class EventRepo
 {
@@ -35,5 +36,10 @@ class EventRepo
         $event = $this->findOrFail($id);
 
         return $event->delete();
+    }
+
+    public function all(): Collection
+    {
+        return Event::all();
     }
 }
