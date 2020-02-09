@@ -215,7 +215,7 @@
                             <label for="">Event name</label>
                             <select name="event_id" class="form-control">
                                 @foreach($events as $event)
-                                    <option value="{{ $event->id }}">{{ $event->id }}</option>
+                                    <option value="{{ $event->id }}">{{ $event->event_name }}</option>
                                 @endforeach
                             </select>
                         </div>

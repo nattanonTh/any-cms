@@ -1,7 +1,7 @@
 <?php
 
 return [
-    'project_name' => 'Wat name',
+    'project_name' => 'Wat Khao Wong',
     'version' => '1.01',
     'theme' => 'primary',
     'theme-btn' => 'primary',

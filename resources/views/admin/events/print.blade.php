@@ -27,6 +27,7 @@
         * {
             font-family: "Kanit", sans-serif;
         }
+
     </style>
 
     @yield('style')
@@ -157,10 +158,8 @@
             <small class="form-text text-muted">Activities</small>
         </div>
         <div class="row">
-            <div class="col-md-5 form-group">
-                <p>
-                    {!! $attention->event->event_schedule !!}
-                </p>
+            <div class="col-md-12 form-group">
+                <p style="white-space: pre-wrap;">{!! $attention->event->event_schedule !!}</p>
             </div>
         </div>
 
