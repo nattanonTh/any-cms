@@ -14,7 +14,7 @@ class AddFields extends Migration
     public function up()
     {
         Schema::table('members', function (Blueprint $table) {
-            $table->text('image')->nullable();
+            $table->longText('image')->nullable();
         });
     }
 

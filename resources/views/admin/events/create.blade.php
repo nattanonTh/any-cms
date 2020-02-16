@@ -8,7 +8,7 @@
                 <div class="col-md-10 offset-1">
                     <div class="card card-default">
                         <div class="card-header">
-                            <h3 class="card-title">Add Event</h3>
+                            <h3 class="card-title">เพิ่มกิจกรรม</h3>
                             <div class="card-tools">
                                 <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
                                     <i class="fas fa-minus"></i></button>
@@ -16,7 +16,7 @@
                         </div>
                         <div class="card-body" style="display: block;">
                             <div class="form-group">
-                                <label for="name">Event Name</label>
+                                <label for="name">ชื่อกิจกรรม</label>
                                 <input type="text" id="event_name" name="event_name" class="form-control @error('event_name') is-invalid @enderror" value="" placeholder="Event Name" required>
                                 @error('event_name')
                                 <span class="invalid-feedback" role="alert">
@@ -25,7 +25,7 @@
                                 @enderror
                             </div>
                             <div class="form-group">
-                                <label for="surname">Schedule</label>
+                                <label for="surname">ตารางกิจกรรม</label>
                                 <textarea name="event_schedule" id="event_schedule" class="form-control @error('event_schedule') is-invalid @enderror" placeholder="Schedule" cols="30" rows="10" required></textarea>
                                 @error('event_schedule')
                                 <span class="invalid-feedback" role="alert">

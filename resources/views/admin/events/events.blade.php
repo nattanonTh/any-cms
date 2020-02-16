@@ -8,10 +8,10 @@
                 <div class="card-header">
                     <div class="row">
                         <div class="col-sm-6">
-                            <h3 class="card-title">Events</h3>
+                            <h3 class="card-title">กิจกรรม</h3>
                         </div>
                         <div class="col-sm-6 text-right">
-                            <a href="{{ route('event.create') }}" class="btn btn-{!! config('any_cms.theme-btn') !!}">Add Event</a>
+                            <a href="{{ route('event.create') }}" class="btn btn-{!! config('any_cms.theme-btn') !!}">เพิ่มกิจกรรม</a>
                         </div>
                     </div>
                 </div>
@@ -20,8 +20,8 @@
                     <table class="table table-hover" id="datatable-events" width="100%">
                         <thead>
                         <tr>
-                            <th>Event Name</th>
-                            <th>Created At</th>
+                            <th>ชื่อกิจกรรม</th>
+                            <th>เพิ่มข้อมูลเมื่อ</th>
                             <th>Action</th>
                         </tr>
                         </thead>

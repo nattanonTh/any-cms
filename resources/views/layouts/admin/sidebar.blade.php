@@ -19,7 +19,7 @@
                     <a href="{{ route('dashboard') }}" class="nav-link {{ isActiveLink('dashboard') ? 'active' : '' }}">
                         <i class="nav-icon fa fa-circle"></i>
                         <p>
-                            Dashboard
+                            รายงาน
                         </p>
                     </a>
                 </li>
@@ -27,7 +27,7 @@
                     <a href="{{ route('member.listing') }}" class="nav-link {{ isActiveLink('member/*') ? 'active' : '' }}">
                         <i class="nav-icon fa fa-user"></i>
                         <p>
-                            Manage Members
+                            จัดารสมาชิก
                         </p>
                     </a>
                 </li>
@@ -35,7 +35,7 @@
                     <a href="{{ route('event.listing') }}" class="nav-link {{ isActiveLink('event/*') ? 'active' : '' }}">
                         <i class="nav-icon fa fa-level-up-alt"></i>
                         <p>
-                            Manage Event
+                            จัดการกิจกรรม
                         </p>
                     </a>
                 </li>

@@ -8,7 +8,7 @@
                     <!-- Default box -->
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title">Report</h3>
+                            <h3 class="card-title">รายงาน</h3>
 
                             <div class="card-tools">
                                 <button type="button" class="btn btn-tool" data-card-widget="collapse"
@@ -17,16 +17,16 @@
                             </div>
                         </div>
                         <div class="card-body">
-                            <h3>Attention</h3>
+                            <h3>รายงานการร่วมกิจกรรม</h3>
                             <table class="table" id="attention">
                                 <thead>
                                 <tr>
-                                    <th>Attendant name</th>
-                                    <th>Attendant age</th>
-                                    <th>Attendant gender</th>
-                                    <th>Event name</th>
-                                    <th>Attend date</th>
-                                    <th>In day</th>
+                                    <th>ชื่อผู้เข้าร่วม</th>
+                                    <th>อายุ</th>
+                                    <th>เพศ</th>
+                                    <th>กิจกรรม</th>
+                                    <th>วันที่เริ่มการเข้าร่วม</th>
+                                    <th>จำนวนวันที่เข้าร่วม</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -47,7 +47,7 @@
 
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title">Report</h3>
+                            <h3 class="card-title">รายงาน</h3>
 
                             <div class="card-tools">
                                 <button type="button" class="btn btn-tool" data-card-widget="collapse"
@@ -56,14 +56,14 @@
                             </div>
                         </div>
                         <div class="card-body">
-                            <h3>Member</h3>
+                            <h3>สมาชิก</h3>
                             <table class="table" id="member">
                                 <thead>
                                 <tr>
-                                    <th>Name</th>
-                                    <th>Age</th>
-                                    <th>Gender</th>
-                                    <th>Status</th>
+                                    <th>ชื่อ</th>
+                                    <th>อายุ</th>
+                                    <th>เพศ</th>
+                                    <th>สถานะ</th>
                                 </tr>
                                 </thead>
                                 <tbody>

@@ -8,7 +8,7 @@
                 <div class="col-md-10 offset-1">
                     <div class="card card-default">
                         <div class="card-header">
-                            <h3 class="card-title">Edit profile : {!! $member->name !!}</h3>
+                            <h3 class="card-title">แก้ไขสมาชิกใหม่ : {!! $member->name !!}</h3>
                             <div class="card-tools">
                                 <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
                                     <i class="fas fa-minus"></i></button>
@@ -16,7 +16,7 @@
                         </div>
                         <div class="card-body" style="display: block;">
                             <div class="form-group">
-                                <label for="name">Name</label>
+                                <label for="name">ชื่อ</label>
                                 <input type="text" id="name" name="name" class="form-control @error('name') is-invalid @enderror" value="{!! $member->name !!}" placeholder="Name" required>
                                 @error('name')
                                 <span class="invalid-feedback" role="alert">
@@ -25,7 +25,7 @@
                                 @enderror
                             </div>
                             <div class="form-group">
-                                <label for="surname">Surname</label>
+                                <label for="surname">นามสกุล</label>
                                 <input type="text" id="surname" name="surname" class="form-control @error('surname') is-invalid @enderror" value="{!! $member->surname !!}" placeholder="Surname" required>
                                 @error('surname')
                                 <span class="invalid-feedback" role="alert">
@@ -34,7 +34,7 @@
                                 @enderror
                             </div>
                             <div class="form-group">
-                                <label for="surname">Age</label>
+                                <label for="surname">อายุ</label>
                                 <input type="number" id="age" name="age" class="form-control @error('age') is-invalid @enderror" value="{{$member->age}}" placeholder="Age" required min="1">
                                 @error('age')
                                 <span class="invalid-feedback" role="alert">
@@ -43,10 +43,12 @@
                                 @enderror
                             </div>
                             <div class="form-group">
-                                <label for="surname">Gender</label>
+                                <label for="surname">เพศ</label>
                                 <select name="sex" id="sex" class="form-control @error('sex') is-invalid @enderror">
                                     <option value="ชาย" @if($member->sex == 'ชาย') selected @endif>ชาย</option>
                                     <option value="หญิง" @if($member->sex == 'หญิง') selected @endif>หญิง</option>
+                                    <option value="พระ" @if($member->sex == 'พระ') selected @endif>พระ</option>
+                                    <option value="เณร" @if($member->sex == 'เณร') selected @endif>เณร</option>
                                 </select>
                                 @error('sex')
                                 <span class="invalid-feedback" role="alert">
@@ -55,7 +57,7 @@
                                 @enderror
                             </div>
                             <div class="form-group">
-                                <label for="id_card">ID Card</label>
+                                <label for="id_card">รหัสบัตรประชาชน</label>
                                 <input type="text" id="id_card" name="id_card" class="form-control @error('id_card') is-invalid @enderror" value="{!! $member->id_card !!}" placeholder="ID Card" required>
                                 @error('id_card')
                                 <span class="invalid-feedback" role="alert">
@@ -64,7 +66,7 @@
                                 @enderror
                             </div>
                             <div class="form-group">
-                                <label for="birth_date">Birth date</label>
+                                <label for="birth_date">วันเกิด</label>
                                 <div class="input-group">
                                     <div class="input-group-prepend">
                                         <span class="input-group-text">
@@ -90,7 +92,7 @@
                             </div>
 
                             <div class="form-group">
-                                <label for="mobile_no">Tel</label>
+                                <label for="mobile_no">เบอร์โทรติดต่อ</label>
                                 <input type="text" id="mobile_no" name="mobile_no" class="form-control @error('mobile_no') is-invalid @enderror" value="{!! $member->mobile_no !!}" placeholder="Tel" required>
                                 @error('mobile_no')
                                 <span class="invalid-feedback" role="alert">
@@ -99,7 +101,7 @@
                                 @enderror
                             </div>
                             <div class="form-group">
-                                <label for="address">Address</label>
+                                <label for="address">ที่อยู่</label>
                                 <textarea name="address" id="address" class="form-control @error('address') is-invalid @enderror" placeholder="Address" cols="30" rows="5">{!! $member->address !!}</textarea>
                                 @error('address')
                                 <span class="invalid-feedback" role="alert">
@@ -117,7 +119,7 @@
                                 @enderror
                             </div>
                             <div class="form-group">
-                                <label for="emergency_contact_name">Contact person in case of emergency</label>
+                                <label for="emergency_contact_name">บุคคลที่สามารถติดต่อได้ในกรณีฉุกเฉิน</label>
                                 <input type="text" id="emergency_contact_name" name="emergency_contact_name" class="form-control @error('emergency_contact_name') is-invalid @enderror" value="{!! $member->emergency_contact_name !!}" placeholder="Contact person in case of emergency" required>
                                 @error('emergency_contact_name')
                                 <span class="invalid-feedback" role="alert">
@@ -126,7 +128,7 @@
                                 @enderror
                             </div>
                             <div class="form-group">
-                                <label for="emergency_contact_mobile">Mobile</label>
+                                <label for="emergency_contact_mobile">เบอร์โทรติดต่อ</label>
                                 <input type="text" id="emergency_contact_mobile" name="emergency_contact_mobile" class="form-control @error('emergency_contact_mobile') is-invalid @enderror" value="{!! $member->emergency_contact_mobile !!}" placeholder="Mobile" required>
                                 @error('emergency_contact_mobile')
                                 <span class="invalid-feedback" role="alert">
@@ -135,7 +137,7 @@
                                 @enderror
                             </div>
                             <div class="form-group">
-                                <label for="emergency_contact_relation">Relation to member</label>
+                                <label for="emergency_contact_relation">เกี่ยวข้องเป็น</label>
                                 <input type="text" id="emergency_contact_relation" name="emergency_contact_relation" class="form-control @error('emergency_contact_relation') is-invalid @enderror" value="{!! $member->emergency_contact_relation !!}" placeholder="Relation to member" required>
                                 @error('emergency_contact_relation')
                                 <span class="invalid-feedback" role="alert">
@@ -144,7 +146,7 @@
                                 @enderror
                             </div>
                             <div class="form-group">
-                                <label for="congenital_disease">Congenital disease or required information</label>
+                                <label for="congenital_disease">อาการแพ้ หรือ ข้อมูลเพิ่มเติม</label>
                                 <textarea name="congenital_disease" id="congenital_disease" class="form-control @error('congenital_disease') is-invalid @enderror" placeholder="Congenital disease or required information" cols="30" rows="5">{!! $member->congenital_disease !!}</textarea>
                                 @error('congenital_disease')
                                 <span class="invalid-feedback" role="alert">
@@ -153,7 +155,7 @@
                                 @enderror
                             </div>
                             <div class="form-group">
-                                <label for="profile" class="preview">Image</label>
+                                <label for="profile" class="preview">รูปภาพ</label>
                                 <div id="profile_webcam"></div>
                                 <input type=button value="Take Snapshot" id="snap">
                                 <input type="hidden" id="image" name="image">
@@ -171,10 +173,10 @@
                             <div class="form-group">
                                 <label for="status">Status</label>
                                 <select name="status" id="status" class="form-control @error('status') is-invalid @enderror">
-                                    <option value="None">None</option>
-                                    <option value="Good">Good</option>
-                                    <option value="Normal">Normal</option>
-                                    <option value="Bad">Bad</option>
+                                    <option value="ไม่มี" @if($member->status == 'ไม่มี') selected @endif>ไม่มี</option>
+                                    <option value="ดี" @if($member->status == 'ดี') selected @endif>ดี</option>
+                                    <option value="ปกติ" @if($member->status == 'ปกติ') selected @endif>ปกติ</option>
+                                    <option value="ปรับปรุง" @if($member->status == 'ปรับปรุง') selected @endif>ปรับปรุง</option>
                                 </select>
                                 @error('status')
                                 <span class="invalid-feedback" role="alert">
@@ -206,8 +208,8 @@
             $('#status').val('{!! $member->status !!}');
 
             Webcam.set({
-                width: 320,
-                height: 240,
+                width: 900,
+                height: 540,
                 image_format: 'jpeg',
                 jpeg_quality: 90
             });

@@ -6,7 +6,7 @@
                 <div class="col-md-10 offset-1">
                     <div class="card card-default">
                         <div class="card-header">
-                            <h3 class="card-title">Member details</h3>
+                            <h3 class="card-title">ข้อมูลสมาชิก</h3>
                             <div class="card-tools">
                                 <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
                                     <i class="fas fa-minus"></i></button>
@@ -22,115 +22,122 @@
                                 <div class="col-md-8">
                                     <form class="form-horizontal">
                                         <div class="form-group">
-                                            <label for="inputName" class="col-sm-2 control-label">Name : </label>
+                                            <label for="inputName" class="col-sm-4 control-label">ชื่อ : </label>
 
-                                            <div class="col-sm-10">
+                                            <div class="col-sm-8">
                                                 <p>{!! $member->name !!}</p>
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label for="inputName" class="col-sm-2 control-label">Surname : </label>
+                                            <label for="inputName" class="col-sm-4 control-label">นามสกุล : </label>
 
-                                            <div class="col-sm-10">
+                                            <div class="col-sm-8">
                                                 <p>{!! $member->surname !!}</p>
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label for="inputName" class="col-sm-2 control-label">Age : </label>
+                                            <label for="inputName" class="col-sm-4 control-label">อายุ : </label>
 
-                                            <div class="col-sm-10">
+                                            <div class="col-sm-8">
                                                 <p>{!! $member->age !!}</p>
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label for="inputName" class="col-sm-2 control-label">Gender : </label>
+                                            <label for="inputName" class="col-sm-4 control-label">วันเกิด : </label>
 
-                                            <div class="col-sm-10">
+                                            <div class="col-sm-8">
+                                                <p>{!! $member->birth_date->format('d/m/Y') !!}</p>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="inputName" class="col-sm-4 control-label">เพศ : </label>
+
+                                            <div class="col-sm-8">
                                                 <p>{!! $member->sex !!}</p>
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label for="inputName" class="col-sm-2 control-label">ID Card : </label>
+                                            <label for="inputName" class="col-sm-4 control-label">รหัสบัตรประชาชน : </label>
 
-                                            <div class="col-sm-10">
+                                            <div class="col-sm-8">
                                                 <p>{!! $member->id_card !!}</p>
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label for="inputName" class="col-sm-2 control-label">Mobile no : </label>
+                                            <label for="inputName" class="col-sm-4 control-label">เบอร์โทรติดต่อ : </label>
 
-                                            <div class="col-sm-10">
+                                            <div class="col-sm-8">
                                                 <p>{!! $member->mobile_no !!}</p>
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label for="inputName" class="col-sm-2 control-label">Address : </label>
+                                            <label for="inputName" class="col-sm-4 control-label">ที่อยู่ : </label>
 
-                                            <div class="col-sm-10">
+                                            <div class="col-sm-8">
                                                 <p>{!! $member->address !!}</p>
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label for="inputName" class="col-sm-2 control-label">Social id : </label>
+                                            <label for="inputName" class="col-sm-4 control-label">Social id : </label>
 
-                                            <div class="col-sm-10">
+                                            <div class="col-sm-8">
                                                 <p>{!! $member->social_id !!}</p>
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label for="inputName" class="col-sm-2 control-label">Emergency contact name : </label>
+                                            <label for="inputName" class="col-sm-4 control-label">บุคคลที่สามารถติดต่อได้ในกรณีฉุกเฉิน : </label>
 
-                                            <div class="col-sm-10">
+                                            <div class="col-sm-8">
                                                 <p>{!! $member->emergency_contact_name !!}</p>
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label for="inputName" class="col-sm-2 control-label">Emergency contact mobile  : </label>
+                                            <label for="inputName" class="col-sm-4 control-label">เบอร์โทรติดต่อ  : </label>
 
-                                            <div class="col-sm-10">
+                                            <div class="col-sm-8">
                                                 <p>{!! $member->emergency_contact_mobile !!}</p>
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label for="inputName" class="col-sm-2 control-label">Emergency contact relation : </label>
+                                            <label for="inputName" class="col-sm-4 control-label">เกี่ยวข้องเป็น : </label>
 
-                                            <div class="col-sm-10">
+                                            <div class="col-sm-8">
                                                 <p>{!! $member->emergency_contact_relation !!}</p>
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label for="inputName" class="col-sm-2 control-label">Congenital disease : </label>
+                                            <label for="inputName" class="col-sm-4 control-label">อาการแพ้ หรือ ข้อมูลเพิ่มเติม : </label>
 
-                                            <div class="col-sm-10">
+                                            <div class="col-sm-8">
                                                 <p>{!! $member->congenital_disease !!}</p>
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label for="inputName" class="col-sm-2 control-label">Status : </label>
+                                            <label for="inputName" class="col-sm-4 control-label">สถานะ : </label>
 
-                                            <div class="col-sm-10">
-                                                @if($member->status == 'None')
-                                                    <span class="badge badge-secondary">None</span>
-                                                @elseif ($member->status == 'Good')
-                                                    <span class="badge badge-success">Good</span>
-                                                @elseif ($member->status == 'Normal')
-                                                    <span class="badge badge-warning">Normal</span>
-                                                @elseif ($member->status == 'Bad')
-                                                    <span class="badge badge-danger">Bad</span>
+                                            <div class="col-sm-8">
+                                                @if($member->status == 'ไม่มี')
+                                                    <span class="badge badge-secondary">-</span>
+                                                @elseif ($member->status == 'ดี')
+                                                    <span class="badge badge-success">ดี</span>
+                                                @elseif ($member->status == 'ปกติ')
+                                                    <span class="badge badge-warning">ปกติ</span>
+                                                @elseif ($member->status == 'ปรับปรุง')
+                                                    <span class="badge badge-danger">ปรับปรุง</span>
                                                 @endif
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label for="inputName" class="col-sm-2 control-label">Created at </label>
+                                            <label for="inputName" class="col-sm-4 control-label">เพิ่มข้อมูลเมื่อ : </label>
 
-                                            <div class="col-sm-10">
+                                            <div class="col-sm-8">
                                                 <p>{!! $member->created_at !!}</p>
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label for="inputName" class="col-sm-2 control-label">Updated at : </label>
+                                            <label for="inputName" class="col-sm-4 control-label">อัพเดตข้อมูลเมื่อ : </label>
 
-                                            <div class="col-sm-10">
+                                            <div class="col-sm-8">
                                                 <p>{!! $member->updated_at !!}</p>
                                             </div>
                                         </div>
@@ -153,7 +160,7 @@
                             <div class="row">
                                 <div class="col-md-12 text-right">
                                     <button class="btn btn-primary" data-toggle="modal" data-target="#add-attention">
-                                        Add new attention
+                                        เข้าร่วมกิจกรรม
                                     </button>
                                 </div>
                             </div>
@@ -162,11 +169,11 @@
                                     <table class="table table-hover" id="datatable-attention" width="100%">
                                         <thead>
                                         <tr>
-                                            <th>Event name</th>
-                                            <th>Start date</th>
-                                            <th>Attend date</th>
-                                            <th>End date</th>
-                                            <th>Created at</th>
+                                            <th>ชื่อกิจกรรม</th>
+                                            <th>วันที่เข้าเริ่มเข้าร่วม</th>
+                                            <th>จำนวนวันที่เข้าร่วม</th>
+                                            <th>สิ้นสุดวันที่</th>
+                                            <th>เพิ่มข้อมูลเมื่อ</th>
                                             <th>Action</th>
                                         </tr>
                                         </thead>
@@ -205,14 +212,14 @@
                 @csrf
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Attend event</h5>
+                        <h5 class="modal-title" id="exampleModalLabel">เข้าร่วมกิจกรรม</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
                     <div class="modal-body">
                         <div class="form-group">
-                            <label for="">Event name</label>
+                            <label for="">ชื่อกิจกรรม</label>
                             <select name="event_id" class="form-control">
                                 @foreach($events as $event)
                                     <option value="{{ $event->id }}">{{ $event->event_name }}</option>
@@ -220,7 +227,7 @@
                             </select>
                         </div>
                         <div class="form-group">
-                            <label for="">Start date</label>
+                            <label for="">วันที่เริ่มเข้าร่วม</label>
                             <input type="text"
                                    id="start_date"
                                    name="start_date"
@@ -233,7 +240,7 @@
                                    required>
                         </div>
                         <div class="form-group">
-                            <label for="">Attend date</label>
+                            <label for="">จำนวนวันที่เข้าร่่วม</label>
                             <input type="number" class="form-control" name="attend_date" min="1" value="1">
                         </div>
                     </div>

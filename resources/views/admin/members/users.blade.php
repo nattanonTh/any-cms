@@ -8,10 +8,10 @@
                 <div class="card-header">
                     <div class="row">
                         <div class="col-sm-6">
-                            <h3 class="card-title">Active members</h3>
+                            <h3 class="card-title">สมาชิก</h3>
                         </div>
                         <div class="col-sm-6 text-right">
-                            <a href="{{ route('member.create') }}" class="btn btn-{!! config('any_cms.theme-btn') !!}">Add member</a>
+                            <a href="{{ route('member.create') }}" class="btn btn-{!! config('any_cms.theme-btn') !!}">เพิ่มสมาชิก</a>
                         </div>
                     </div>
                 </div>
@@ -20,13 +20,13 @@
                     <table class="table table-hover" id="datatable-members" width="100%">
                         <thead>
                         <tr>
-                            <th>Name</th>
-                            <th>Surname</th>
-                            <th>ID Card</th>
-                            <th>Tel</th>
-                            <th>Created At</th>
-                            <th>Status</th>
-                            <th>Action</th>
+                            <th>ชื่อ</th>
+                            <th>นามสกุล</th>
+                            <th>รหัสบัตรประชาชน</th>
+                            <th>เบอร์ติืดต่อ</th>
+                            <th>วันที่เพิ่มข้อมูล</th>
+                            <th>สถานะ</th>
+                            <th></th>
                         </tr>
                         </thead>
                         <tbody>
@@ -71,14 +71,14 @@
                 },{
                     "targets": 5,
                     "render": function (data, type, row, meta) {
-                        if (row.status == 'None') {
-                            return '<span class="badge badge-secondary">None</span>';
-                        } else if (row.status == 'Good') {
-                            return '<span class="badge badge-success">Good</span>';
-                        } else if (row.status == 'Normal') {
-                            return '<span class="badge badge-warning">Normal</span>';
-                        } else if (row.status == 'Bad') {
-                            return '<span class="badge badge-danger">Bad</span>';
+                        if (row.status == 'ไม่มี') {
+                            return '<span class="badge badge-secondary">-</span>';
+                        } else if (row.status == 'ดี') {
+                            return '<span class="badge badge-success">ดี</span>';
+                        } else if (row.status == 'ปกติ') {
+                            return '<span class="badge badge-warning">ปกติ</span>';
+                        } else if (row.status == 'ปรับปรุง') {
+                            return '<span class="badge badge-danger">ปรับปรุง</span>';
                         }
                     }
                 }],
