@@ -23,16 +23,16 @@
                         </p>
                     </a>
                 </li>
-                @can('manage user')
-                <li class="nav-item">
-                    <a href="{{ route('user.listing') }}" class="nav-link {{ isActiveLink('user/*') ? 'active' : '' }}">
-                        <i class="nav-icon fa fa-user"></i>
-                        <p>
-                            Manage Users
-                        </p>
-                    </a>
-                </li>
-                @endcan
+{{--                @can('manage user')--}}
+{{--                <li class="nav-item">--}}
+{{--                    <a href="{{ route('user.listing') }}" class="nav-link {{ isActiveLink('user/*') ? 'active' : '' }}">--}}
+{{--                        <i class="nav-icon fa fa-user"></i>--}}
+{{--                        <p>--}}
+{{--                            Manage Users--}}
+{{--                        </p>--}}
+{{--                    </a>--}}
+{{--                </li>--}}
+{{--                @endcan--}}
                 @can('manage landing')
                     <li class="nav-item">
                         <a href="{{ route('landing.edit') }}" class="nav-link {{ isActiveLink('landing/edit') ? 'active' : '' }}">
@@ -43,6 +43,14 @@
                         </a>
                     </li>
                 @endcan
+                <li class="nav-item">
+                    <a href="{{ route('banner.listing') }}" class="nav-link {{ isActiveLink('banner/*') ? 'active' : '' }}">
+                        <i class="nav-icon fa fa-ad"></i>
+                        <p>
+                            Manage Banner
+                        </p>
+                    </a>
+                </li>
                 @can('manage blog')
                     <li class="nav-item">
                         <a href="{{ route('blog.listing') }}" class="nav-link {{ isActiveLink('blog/*') ? 'active' : '' }}">

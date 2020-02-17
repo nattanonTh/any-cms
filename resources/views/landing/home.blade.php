@@ -1,14 +1,65 @@
 @extends('layouts.landing.landing_layout')
 
 @section('content')
+    @include('layouts.landing.slider', ['banners' => \App\Models\Banner::all()])
     <section id="content">
+        <div class="text-center" style="padding-top: 10px;background-color: #182643;">
+            <h3 style="color: white">รับสิทธิประโยชน์ก่อนใคร เลือกเลยตอนนี้</h3>
+        </div>
         <div class="content-wrap">
-            <section id="section-about" class="page-section">
-                <div class="container clearfix">
-                    <div class="heading-block center">
-                        <h2>We are <span>Canvas</span></h2>
-                        <span>One of the most Versatile Theme on Themeforest</span>
+            <div class="container clear-bottommargin clearfix">
+                <div class="row">
+                    @foreach(\App\Models\Blog::take(8)->get() as $blog)
+                        <div class="col-lg-3 col-md-6 bottommargin">
+                            <div class="ipost clearfix">
+                                <div class="entry-image">
+                                    <a href="#"><img class="image_fade" src="{!! $blog->image_path !!}" alt="Image"></a>
+                                </div>
+                            </div>
+                        </div>
+                    @endforeach
+                </div>
+            </div>
+            <div class="row pt-2">
+                <div class="col-12">
+                    <div class="text-center">
+                        <a href="">ดูทั้งหมด >></a>
                     </div>
+                </div>
+            </div>
+            <section id="section-about" class="page-section">
+                <div class="section dark parallax nobottommargin" style="padding: 80px 0;background-image: url('{{ asset('images/landing/Image 36.png') }}');" data-bottom-top="background-position:0px 300px;" data-top-bottom="background-position:0px -300px;">
+
+                    <div class="container clearfix">
+
+                        <div class="col_one_fourth nobottommargin center" data-animate="bounceIn">
+                            <i class="i-plain i-xlarge divcenter nobottommargin icon-code"></i>
+                            <div class="counter counter-lined"><span data-from="100" data-to="846" data-refresh-interval="50" data-speed="2000"></span>K+</div>
+                            <h5>Lines of Codes</h5>
+                        </div>
+
+                        <div class="col_one_fourth nobottommargin center" data-animate="bounceIn" data-delay="200">
+                            <i class="i-plain i-xlarge divcenter nobottommargin icon-magic"></i>
+                            <div class="counter counter-lined"><span data-from="3000" data-to="15360" data-refresh-interval="100" data-speed="2500"></span>+</div>
+                            <h5>KBs of HTML Files</h5>
+                        </div>
+
+                        <div class="col_one_fourth nobottommargin center" data-animate="bounceIn" data-delay="400">
+                            <i class="i-plain i-xlarge divcenter nobottommargin icon-file-text"></i>
+                            <div class="counter counter-lined"><span data-from="10" data-to="386" data-refresh-interval="25" data-speed="3500"></span>*</div>
+                            <h5>No. of Templates</h5>
+                        </div>
+
+                        <div class="col_one_fourth nobottommargin center col_last" data-animate="bounceIn" data-delay="600">
+                            <i class="i-plain i-xlarge divcenter nobottommargin icon-time"></i>
+                            <div class="counter counter-lined"><span data-from="60" data-to="1200" data-refresh-interval="30" data-speed="2700"></span>+</div>
+                            <h5>Hours of Coding</h5>
+                        </div>
+
+                    </div>
+
+                </div>
+                <div class="container clearfix">
                     <div class="col_one_third nobottommargin">
                         <div class="feature-box media-box">
                             <div class="fbox-media">
@@ -43,37 +94,6 @@
                         </div>
                     </div>
                     <div class="clear"></div>
-                </div>
-                <div class="section dark parallax nobottommargin" style="padding: 80px 0;background-image: url('{{ asset('/landing/images/parallax/1.jpg') }}');" data-bottom-top="background-position:0px 100px;" data-top-bottom="background-position:0px -300px;">
-
-                    <div class="container clearfix">
-
-                        <div class="col_one_fourth nobottommargin center" data-animate="bounceIn">
-                            <i class="i-plain i-xlarge divcenter nobottommargin icon-code"></i>
-                            <div class="counter counter-lined"><span data-from="100" data-to="846" data-refresh-interval="50" data-speed="2000"></span>K+</div>
-                            <h5>Lines of Codes</h5>
-                        </div>
-
-                        <div class="col_one_fourth nobottommargin center" data-animate="bounceIn" data-delay="200">
-                            <i class="i-plain i-xlarge divcenter nobottommargin icon-magic"></i>
-                            <div class="counter counter-lined"><span data-from="3000" data-to="15360" data-refresh-interval="100" data-speed="2500"></span>+</div>
-                            <h5>KBs of HTML Files</h5>
-                        </div>
-
-                        <div class="col_one_fourth nobottommargin center" data-animate="bounceIn" data-delay="400">
-                            <i class="i-plain i-xlarge divcenter nobottommargin icon-file-text"></i>
-                            <div class="counter counter-lined"><span data-from="10" data-to="386" data-refresh-interval="25" data-speed="3500"></span>*</div>
-                            <h5>No. of Templates</h5>
-                        </div>
-
-                        <div class="col_one_fourth nobottommargin center col_last" data-animate="bounceIn" data-delay="600">
-                            <i class="i-plain i-xlarge divcenter nobottommargin icon-time"></i>
-                            <div class="counter counter-lined"><span data-from="60" data-to="1200" data-refresh-interval="30" data-speed="2700"></span>+</div>
-                            <h5>Hours of Coding</h5>
-                        </div>
-
-                    </div>
-
                 </div>
             </section>
         </div>

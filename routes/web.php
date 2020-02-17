@@ -79,4 +79,23 @@ Route::middleware('auth')
                         Route::delete('delete', 'PromotionController@destroy')->name('delete');
                     });
             });
+
+        Route::prefix('banner')
+            ->namespace('Banner')
+            ->name('banner.')
+            ->group(function () {
+                Route::get('listing', 'BannerController@index')->name('listing');
+                Route::get('list', 'BannerController@list')->name('list');
+
+                Route::get('create', 'BannerController@create')->name('create');
+                Route::post('create', 'BannerController@store')->name('create');
+
+                Route::prefix('{banner}')
+                    ->group(function () {
+                        Route::get('edit', 'BannerController@edit')->name('edit');
+                        Route::post('edit', 'BannerController@update')->name('edit');
+
+                        Route::delete('delete', 'BannerController@destroy')->name('delete');
+                    });
+            });
     });

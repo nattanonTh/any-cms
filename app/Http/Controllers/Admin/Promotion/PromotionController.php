@@ -53,8 +53,8 @@ class PromotionController extends Controller
 
     public function update(CreatePromotionRequest $request, Promotion $promotion)
     {
-
-       $files = $request->file('cover');
+        $values = $request->all();
+        $files = $request->file('cover');
         if ($request->hasFile('cover')) {
             Storage::delete($promotion->image_path);
             $paths = $this->uploadImageService->uploadImagesWithThumbnail([$files], config('promotion.cover_path'));

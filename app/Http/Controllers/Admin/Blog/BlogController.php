@@ -53,8 +53,8 @@ class BlogController extends Controller
 
     public function update(CreateBlogRequest $request, Blog $blog)
     {
-       
-       $files = $request->file('cover');
+        $values = $request->all();
+        $files = $request->file('cover');
         if ($request->hasFile('cover')) {
             Storage::delete($blog->image_path);
             $paths = $this->uploadImageService->uploadImagesWithThumbnail([$files], config('blog.cover_path'));

@@ -7,4 +7,8 @@ return [
     'theme' => 'dark',
     'theme-btn' => 'dark',
     'admin_user_id' => 1,
+
+    'banner' => [
+        'cover_path' => 'uploads/banner/cover',
+    ]
 ];
