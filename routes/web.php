@@ -14,6 +14,10 @@ Route::namespace('Landing')
         Route::get('/clip-gallery', 'HomeController@video')->name('landing-video');
     });
 
+Route::get('tattoopromotion', function() {
+    return view('tattoo.tattoo');
+})->name('tattoopromotion');
+
 Auth::routes(['register' => false]);
 
 // Admin route

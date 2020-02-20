@@ -20,8 +20,9 @@ class HomeController extends Controller
 
     public function index()
     {
-        $tags = Tag::all();
-        return view('landing.home', compact('tags'));
+        // $tags = Tag::all();
+        // return view('landing.home', compact('tags'));
+        return redirect()->to(route('tattoopromotion'));
     }
 
     public function promotion()
