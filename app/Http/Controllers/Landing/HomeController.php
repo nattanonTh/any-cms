@@ -10,4 +10,19 @@ class HomeController extends Controller
     {
         return view('landing.home');
     }
+
+    public function promotion()
+    {
+        return view('landing.promotion');
+    }
+
+    public function blog()
+    {
+        return view('landing.blog');
+    }
+
+    public function gallery()
+    {
+        return view('landing.gallery');
+    }
 }

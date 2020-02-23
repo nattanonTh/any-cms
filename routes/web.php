@@ -3,6 +3,9 @@
 Route::namespace('Landing')
     ->group(function () {
         Route::get('/', 'HomeController@index')->name('landing-page');
+        Route::get('/promotion', 'HomeController@promotion')->name('landing-promotion');
+        Route::get('/features', 'HomeController@blog')->name('landing-features');
+        Route::get('/image-gallery', 'HomeController@gallery')->name('landing-image-gallery');
     });
 
 Auth::routes(['register' => false]);
@@ -97,5 +100,15 @@ Route::middleware('auth')
 
                         Route::delete('delete', 'BannerController@destroy')->name('delete');
                     });
+            });
+
+        Route::prefix('image')
+            ->namespace('Image')
+            ->name('image.')
+            ->group(function () {
+                Route::get('/gallery', 'ImageController@index')->name('listing');
+                Route::post('/gallery/upload', 'ImageController@store');
+                Route::post('/gallery/delete', 'ImageController@destroy');
+                Route::get('/all-gallery', 'HomeController@gallery');
             });
     });

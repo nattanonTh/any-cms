@@ -71,6 +71,14 @@
                         </a>
                     </li>
                 @endcan
+                <li class="nav-item">
+                    <a href="{{ route('image.listing') }}" class="nav-link {{ isActiveLink('image/*') ? 'active' : '' }}">
+                        <i class="nav-icon fa fa-image"></i>
+                        <p>
+                            Gallery
+                        </p>
+                    </a>
+                </li>
             </ul>
         </nav>
         <!-- /.sidebar-menu -->

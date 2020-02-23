@@ -14,13 +14,13 @@
             <div class="container clearfix">
                 <div id="primary-menu-trigger"><i class="icon-reorder"></i></div>
                 <ul>
-                    <li class="current"><a href="#"><div>{{ __('landing_page.menu.home') }}</div></a></li>
-                    <li><a href="#"><div>{{ __('landing_page.menu.features') }}</div></a></li>
-                    <li><a href="#"><div>{{ __('landing_page.menu.promotion') }}</div></a></li>
-                    <li><a href="#"><div>{{ __('landing_page.menu.pic_review') }}</div></a></li>
-                    <li><a href="#"><div>{{ __('landing_page.menu.clip_review') }}</div></a></li>
-                    <li><a href="#"><div>{{ __('landing_page.menu.about_us') }}</div></a></li>
-                    <li><a href="#"><div>{{ __('landing_page.menu.contact_us') }}</div></a></li>
+                    <li class="{{ isActiveLink('/') ? 'current' : '' }}"><a href="{{ route('landing-page') }}"><div>{{ __('landing_page.menu.home') }}</div></a></li>
+                    <li class="{{ isActiveLink('features') ? 'current' : '' }}"><a href="{{ route('landing-features') }}"><div>{{ __('landing_page.menu.features') }}</div></a></li>
+                    <li class="{{ isActiveLink('promotion') ? 'current' : '' }}"><a href="{{ route('landing-promotion') }}"><div>{{ __('landing_page.menu.promotion') }}</div></a></li>
+                    <li class="{{ isActiveLink('image-gallery') ? 'current' : '' }}"><a href="{{ route('landing-image-gallery') }}"><div>{{ __('landing_page.menu.pic_review') }}</div></a></li>
+                    <li class="{{ isActiveLink('clip-gallery') ? 'current' : '' }}"><a href="{{ route('landing-page') }}"><div>{{ __('landing_page.menu.clip_review') }}</div></a></li>
+                    <li class="{{ isActiveLink('about-us') ? 'current' : '' }}"><a href="{{ route('landing-page') }}"><div>{{ __('landing_page.menu.about_us') }}</div></a></li>
+                    <li class="{{ isActiveLink('contact-us') ? 'current' : '' }}"><a href="{{ route('landing-page') }}"><div>{{ __('landing_page.menu.contact_us') }}</div></a></li>
                 </ul>
             </div>
         </nav><!-- #primary-menu end -->
