@@ -2,7 +2,7 @@
 
 @section('content')
     <section class="content">
-        <form method="POST" action="{{ route('blog.edit', $blog->id) }}" enctype="multipart/form-data">
+        <form method="POST" action="{{ route('promotion.edit', $promotion->id) }}" enctype="multipart/form-data">
             @csrf
             <div class="row pt-lg-5">
                 <div class="col-md-10 offset-1">
@@ -25,7 +25,7 @@
                                     <label class="custom-file-label" for="customFile">Choose file</label>
                                 </div>
                                 <div style="width: 100%" class="align-content-center">
-                                    <img id="preview" src="{{ asset($blog->image_path) }}" alt="preview  image"
+                                    <img id="preview" src="{{ asset($promotion->image_path) }}" alt="preview  image"
                                          style="
                                              display: block;
                                              margin-left: auto;
@@ -43,7 +43,7 @@
 
                             <div class="form-group">
                                 <label for="title">Title</label>
-                                <input type="text" id="title" name="title" class="form-control @error('title') is-invalid @enderror" value="{{ $blog->title }}" placeholder="Title" required>
+                                <input type="text" id="title" name="title" class="form-control @error('title') is-invalid @enderror" value="{{ $promotion->title }}" placeholder="Title" required>
                                 @error('title')
                                 <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -52,7 +52,7 @@
                             </div>
 
                             <div class="form-group">
-                                    <textarea id="content" name="content" class="form-control @error('content') is-invalid @enderror">{!! $blog->content !!}</textarea>
+                                    <textarea id="content" name="content" class="form-control @error('content') is-invalid @enderror">{!! $promotion->content !!}</textarea>
                                     @error('content')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
