@@ -156,9 +156,10 @@
                             </div>
                             <div class="form-group">
                                 <label for="profile" class="preview">รูปภาพ</label>
-                                <div id="profile_webcam"></div>
-                                <input type=button value="Take Snapshot" id="snap">
-                                <input type="hidden" id="image" name="image">
+                                <input type="file" id="file" name="file" class="form-control">
+                                <input type="hidden" id="image" name="image" class="form-control">
+{{--                                <div id="profile_webcam"></div>--}}
+{{--                                <input type=button value="Take Snapshot" id="snap">--}}
                                 @error('image')
                                 <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -187,30 +188,38 @@
 @section('script')
     <script>
         $(function() {
-            Webcam.set({
-                width: 900,
-                height: 540,
-                image_format: 'jpeg',
-                jpeg_quality: 90
-            });
-            Webcam.attach( '#profile_webcam' );
 
-            $('#snap').click(function () {
-                Webcam.snap( function(data_uri) {
-                    document.getElementById('results').innerHTML = '<img src="'+data_uri+'"/>';
-                    $('#image').val(data_uri);
-                } );
-            });
+            // Webcam.set({
+            //     width: 900,
+            //     height: 540,
+            //     image_format: 'jpeg',
+            //     jpeg_quality: 90
+            // });
+            // Webcam.attach( '#profile_webcam' );
+
+            // $('#snap').click(function () {
+            //     Webcam.snap( function(data_uri) {
+            //         document.getElementById('results').innerHTML = '<img id="preview" src="'+data_uri+'"/>';
+            //         $('#image').val(data_uri);
+            //     } );
+            // });
 
             $('#birth_date').inputmask('dd/mm/yyyy', { 'placeholder': 'dd/mm/yyyy' });
 
-            $("#profile").on("change", function() {
+            $("#file").on("change", function() {
                 if(this.files[0].size > 5048580){
                     alert("Image file is too big.");
                     this.value = "";
                 } else {
-                    var fileName = $(this).val().split("\\").pop();
-                    $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+                    document.getElementById('results').innerHTML = '<img id="preview" src=""/>';
+                    var reader = new FileReader();
+
+                    reader.onload = function(e) {
+                        $('#image').val(e.target.result);
+                    }
+
+                    reader.readAsDataURL(this.files[0]);
+
                     previewImage('#preview', this);
                 }
             });

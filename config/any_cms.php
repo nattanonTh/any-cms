@@ -8,8 +8,8 @@ return [
     'admin_user_id' => 1,
 
     'member_status' => [
-        'good' => 'Good',
-        'normal' => 'Normal',
-        'bad' => 'Bad',
+        'good' => ' ดี',
+        'normal' => 'ปกติ',
+        'bad' => 'ปรับปรุง',
     ],
 ];
