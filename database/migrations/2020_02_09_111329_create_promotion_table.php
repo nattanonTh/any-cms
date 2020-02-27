@@ -16,9 +16,9 @@ class CreatePromotionTable extends Migration
         Schema::create('promotion', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('title');
-            $table->text('content');
-            $table->text('thumbnail_path');
-            $table->text('image_path');
+            $table->longText('content');
+            $table->longText('thumbnail_path');
+            $table->longText('image_path');
             $table->timestamps();
         });
     }

@@ -14,7 +14,7 @@ class AddThumbnailPathToTableBlog extends Migration
     public function up()
     {
         Schema::table('blog', function (Blueprint $table) {
-            $table->text('thumbnail_path');
+            $table->longText('thumbnail_path');
         });
     }
 
