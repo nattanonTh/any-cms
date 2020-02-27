@@ -27,7 +27,7 @@
                     <a href="{{ route('member.listing') }}" class="nav-link {{ isActiveLink('member/*') ? 'active' : '' }}">
                         <i class="nav-icon fa fa-user"></i>
                         <p>
-                            จัดารสมาชิก
+                            จัดการสมาชิก
                         </p>
                     </a>
                 </li>
