@@ -43,7 +43,7 @@
 
                             <div class="form-group">
                                 <label for="email">Link</label>
-                                <input type="text" id="link" name="link" class="form-control @error('link') is-invalid @enderror" value="" placeholder="link" required>
+                                <input type="text" id="link" name="link" class="form-control @error('link') is-invalid @enderror" value="" placeholder="link">
                                 @error('link')
                                 <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>

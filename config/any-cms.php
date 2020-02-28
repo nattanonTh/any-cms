@@ -1,8 +1,8 @@
 <?php
 
 return [
-    'project_name' => 'Any CMS',
-    'project_header' => 'Any CMS',
+    'project_name' => 'Dr.Big Clinic',
+    'project_header' => 'Dr.Big Clinic',
     'version' => '1.01',
     'theme' => 'dark',
     'theme-btn' => 'dark',

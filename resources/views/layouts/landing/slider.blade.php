@@ -15,6 +15,8 @@
 </section>
 <script>
     function clickSlide(el) {
-        window.open(el.dataset.url);
+        if (el != '') {
+            window.open(el.dataset.url);
+        }
     }
 </script>

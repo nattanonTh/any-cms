@@ -23,7 +23,7 @@
             <div class="row pt-2">
                 <div class="col-12">
                     <div class="text-center">
-                        <a href="">ดูทั้งหมด >></a>
+                        <a href="{{ route('landing-features') }}">ดูทั้งหมด >></a>
                     </div>
                 </div>
             </div>
@@ -62,7 +62,7 @@
                 <div class="row pt-2">
                     <div class="col-12">
                         <div class="text-center">
-                            <a href="">ดูทั้งหมด >></a>
+                            <a href="{{ route('landing-promotion') }}">ดูทั้งหมด >></a>
                         </div>
                     </div>
                 </div>
@@ -90,7 +90,7 @@
                     <div class="row pt-2">
                         <div class="col-12">
                             <div class="text-center">
-                                <a href="">ดูทั้งหมด >></a>
+                                <a href="{{ route('landing-image-gallery') }}">ดูทั้งหมด >></a>
                             </div>
                         </div>
                     </div>
@@ -98,11 +98,8 @@
             </div>
             <div class="container">
                 <div class="row pt-5">
-                    <div class="col-sm-6">
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15498.145986056099!2d100.5720063!3d13.806792!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x5fedcd2443e618a7!2sElite%20Clinic!5e0!3m2!1sen!2sth!4v1582477713622!5m2!1sen!2sth" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
-                    </div>
-                    <div class="col-sm-6">
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3807.2448823794766!2d102.80006271520156!3d17.400031807019463!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31239d3a70a10ed7%3A0x63c981e0c96b6c86!2sElite%20Clinic%20Udonthani!5e0!3m2!1sen!2sth!4v1582477977034!5m2!1sen!2sth" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
+                    <div class="col-sm-12">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15416.09727621383!2d102.1208422!3d14.9913552!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xd07f6c90b3cf226a!2sDR.BIG%20Clinic!5e0!3m2!1sen!2sth!4v1582819499085!5m2!1sen!2sth" class="google-maps" frameborder="0" style="border:0;height: 423px;!important;" allowfullscreen=""></iframe>
                     </div>
                 </div>
             </div>
@@ -115,7 +112,7 @@
                                 <a href="#google-map"><i class="icon-map-marker2"></i></a>
                             </div>
                             <h3>
-                                กลุ่มวิสาหกิจ<br>บ้านช่างสกุลบายศรี<span class="subtitle">อ.โพธาราม จ.ราชบุรี </span>
+                                XXXXXXXXXXXXXX<br>XXXXXXXXXXXXXXX<span class="subtitle">XXXXXXXXXXXXXXX </span>
                             </h3>
                         </div>
                     </div>
@@ -126,7 +123,7 @@
                                 <a href="tel:099149974"><i class="icon-phone3"></i></a>
                             </div>
                             <h3>
-                                Speak to Us<span class="subtitle">(66)99 1499746 <br>(66)98 2292982</span>
+                                Speak to Us<span class="subtitle">XXXXXXXXXXXX <br>XXXXXXXXXXXX</span>
                             </h3>
                         </div>
                     </div>
@@ -137,7 +134,7 @@
                                 <a href="https://www.facebook.com/TANEE-Only-You-107111650633023/"><i class="icon-facebook"></i></a>
                             </div>
                             <h3>
-                                Facebook<span class="subtitle">TANEE Only You<br><a href="https://www.facebook.com/TANEE-Only-You-107111650633023/"> ติดตามเรา
+                                Facebook<span class="subtitle">XXXXXXXXXXXXXX<br><a href="#"> ติดตามเรา
 									&gt;</a></span>
                             </h3>
                         </div>
@@ -149,7 +146,7 @@
                                 <a href="http://instagram.com/tanee_brand"><i class="icon-instagram2"></i></a>
                             </div>
                             <h3>
-                                Instagram<span class="subtitle">TANEE Only You<br><a href="http://instagram.com/tanee_brand"> ติดตามเรา
+                                Instagram<span class="subtitle">XXXXXXXXXXXXXX<br><a href="#"> ติดตามเรา
 									&gt;</a></span>
                             </h3>
 

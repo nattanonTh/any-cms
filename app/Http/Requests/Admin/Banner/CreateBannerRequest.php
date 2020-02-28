@@ -24,7 +24,6 @@ class CreateBannerRequest extends FormRequest
     public function rules()
     {
         return [
-            'link' => 'required',
             'cover' => 'nullable|image|max:5120',
         ];
     }
