@@ -1,4 +1,56 @@
-<footer id="footer" class="dark">
+<div class="container mb-5">
+    <hr>
+    <div class="row clear-bottommargin pt-5">
+        <div class="col-lg-3 col-md-6 bottommargin clearfix">
+            <div class="feature-box fbox-center fbox-bg fbox-plain">
+                <div class="fbox-icon">
+                    <a href="#google-map"><i class="icon-map-marker2"></i></a>
+                </div>
+                <h3>
+                    XXXXXXXXXXXXXX<br>XXXXXXXXXXXXXXX<span class="subtitle">XXXXXXXXXXXXXXX </span>
+                </h3>
+            </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6 bottommargin clearfix">
+            <div class="feature-box fbox-center fbox-bg fbox-plain">
+                <div class="fbox-icon">
+                    <a href="tel:099149974"><i class="icon-phone3"></i></a>
+                </div>
+                <h3>
+                    Speak to Us<span class="subtitle">XXXXXXXXXXXX <br>XXXXXXXXXXXX</span>
+                </h3>
+            </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6 bottommargin clearfix">
+            <div class="feature-box fbox-center fbox-bg fbox-plain">
+                <div class="fbox-icon">
+                    <a href="https://www.facebook.com/TANEE-Only-You-107111650633023/"><i class="icon-facebook"></i></a>
+                </div>
+                <h3>
+                    Facebook<span class="subtitle">XXXXXXXXXXXXXX<br><a href="#"> ติดตามเรา
+									&gt;</a></span>
+                </h3>
+            </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6 bottommargin clearfix">
+            <div class="feature-box fbox-center fbox-bg fbox-plain">
+                <div class="fbox-icon">
+                    <a href="http://instagram.com/tanee_brand"><i class="icon-instagram2"></i></a>
+                </div>
+                <h3>
+                    Instagram<span class="subtitle">XXXXXXXXXXXXXX<br><a href="#"> ติดตามเรา
+									&gt;</a></span>
+                </h3>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer id="footer" class="dark" style="background-color: #202932;">
 
     <div class="container">
 

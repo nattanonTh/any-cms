@@ -21,10 +21,10 @@
                 <div class="card-header">
                     <div class="row">
                         <div class="col-sm-6">
-                            <h3 class="card-title">Blogs</h3>
+                            <h3 class="card-title">Services</h3>
                         </div>
                         <div class="col-sm-6 text-right">
-                            <a href="{{ route('blog.create') }}" class="btn btn-{!! config('any-cms.theme-btn') !!}">Add blog</a>
+                            <a href="{{ route('blog.create') }}" class="btn btn-{!! config('any-cms.theme-btn') !!}">Add Service</a>
                         </div>
                     </div>
                 </div>

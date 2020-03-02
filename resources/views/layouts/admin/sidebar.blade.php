@@ -33,16 +33,16 @@
 {{--                    </a>--}}
 {{--                </li>--}}
 {{--                @endcan--}}
-                @can('manage landing')
-                    <li class="nav-item">
-                        <a href="{{ route('landing.edit') }}" class="nav-link {{ isActiveLink('landing/edit') ? 'active' : '' }}">
-                            <i class="nav-icon fa fa-home"></i>
-                            <p>
-                                Manage Landing
-                            </p>
-                        </a>
-                    </li>
-                @endcan
+{{--                @can('manage landing')--}}
+{{--                    <li class="nav-item">--}}
+{{--                        <a href="{{ route('landing.edit') }}" class="nav-link {{ isActiveLink('landing/edit') ? 'active' : '' }}">--}}
+{{--                            <i class="nav-icon fa fa-home"></i>--}}
+{{--                            <p>--}}
+{{--                                Manage Landing--}}
+{{--                            </p>--}}
+{{--                        </a>--}}
+{{--                    </li>--}}
+{{--                @endcan--}}
                 <li class="nav-item">
                     <a href="{{ route('banner.listing') }}" class="nav-link {{ isActiveLink('banner/*') ? 'active' : '' }}">
                         <i class="nav-icon fa fa-ad"></i>
@@ -56,7 +56,7 @@
                         <a href="{{ route('blog.listing') }}" class="nav-link {{ isActiveLink('blog/*') ? 'active' : '' }}">
                             <i class="nav-icon fa fa-blog"></i>
                             <p>
-                                Blog
+                                Service
                             </p>
                         </a>
                     </li>

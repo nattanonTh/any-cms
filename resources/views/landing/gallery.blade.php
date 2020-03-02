@@ -10,21 +10,15 @@
             <div class="nobottommargin">
                 <div class="container clearfix">
                     <div class="clear"></div>
-                    <div id="portfolio" class="portfolio grid-container portfolio-nomargin clearfix" style="position: relative; height: 887.25px;">
-                        @foreach(\App\Models\Image::orderBy('id', 'desc')->get() as $image)
-                            <article class="portfolio-item pf-media pf-icons" style="position: absolute; left: 0px; top: 0px;">
-                                <div class="portfolio-image">
-                                    <a href="#">
-                                        <img src="{{ $image->path }}" alt="Open Imagination">
-                                    </a>
-                                    <div class="portfolio-overlay">
-                                        <a href="{{ $image->path }}" class="center-icon" data-lightbox="image"><i class="icon-line-plus"></i></a>
-                                    </div>
-                                </div>
-                            </article>
-                        @endforeach
+                        <div class="col_full nobottommargin clearfix">
+                            <h3>6 Columns</h3>
+                            <div class="masonry-thumbs grid-6" data-big="3" data-lightbox="gallery">
+                                @foreach(\App\Models\Image::orderBy('id', 'desc')->get() as $image)
+                                    <a href="{{ asset($image->path) }}" data-lightbox="gallery-item"><img class="image_fade" src="{{ asset($image->path) }}" alt="Gallery Thumb 1"></a>
+                                @endforeach
+                            </div>
+                        </div>
                     </div>
-                </div>
             </div>
     </section><!-- #content end -->
 @endsection

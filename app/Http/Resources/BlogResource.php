@@ -21,6 +21,7 @@ class BlogResource extends JsonResource
             'id' => $this->id,
             'edit_link' => route('blog.edit', ['blog' => $this->id]),
             'delete_link' => route('blog.delete', ['blog' => $this->id]),
+            'view_link' => route('show-features', ['blog' => $this->id]),
         ];
     }
 }

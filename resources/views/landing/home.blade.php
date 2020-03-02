@@ -13,7 +13,7 @@
                         <div class="col-lg-3 col-md-6 bottommargin">
                             <div class="ipost clearfix">
                                 <div class="entry-image">
-                                    <a href="#"><img class="image_fade" src="{!! $blog->image_path !!}" alt="Image"></a>
+                                    <a href="{{ route('show-features', $blog->id) }}"><img class="image_fade" src="{!! $blog->image_path !!}" alt="Image"></a>
                                 </div>
                             </div>
                         </div>
@@ -50,10 +50,10 @@
                         <div class="nobottommargin" style="display: block;position: relative;margin-right: 4%;margin-bottom: 50px;float: left;">
                             <div class="feature-box media-box">
                                 <div class="fbox-media">
-                                    <img src="{{ asset($promotion->image_path) }}" style="max-width: 330px;" alt="Why choose Us?">
+                                    <a href="{{ route('show-promotion', $promotion->id) }}"><img src="{{ asset($promotion->image_path) }}" style="max-width: 330px;" alt="Why choose Us?"></a>
                                 </div>
                                 <div class="fbox-desc">
-                                    <h3>{!! $promotion->title !!}</h3>
+                                    <a href="{{ route('show-promotion', $promotion->id) }}"><h3>{!! $promotion->title !!}</h3></a>
                                 </div>
                             </div>
                         </div>
@@ -99,58 +99,7 @@
             <div class="container">
                 <div class="row pt-5">
                     <div class="col-sm-12">
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15416.09727621383!2d102.1208422!3d14.9913552!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xd07f6c90b3cf226a!2sDR.BIG%20Clinic!5e0!3m2!1sen!2sth!4v1582819499085!5m2!1sen!2sth" class="google-maps" frameborder="0" style="border:0;height: 423px;!important;" allowfullscreen=""></iframe>
-                    </div>
-                </div>
-            </div>
-            <div class="container">
-                <hr>
-                <div class="row clear-bottommargin pt-5">
-                    <div class="col-lg-3 col-md-6 bottommargin clearfix">
-                        <div class="feature-box fbox-center fbox-bg fbox-plain">
-                            <div class="fbox-icon">
-                                <a href="#google-map"><i class="icon-map-marker2"></i></a>
-                            </div>
-                            <h3>
-                                XXXXXXXXXXXXXX<br>XXXXXXXXXXXXXXX<span class="subtitle">XXXXXXXXXXXXXXX </span>
-                            </h3>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-3 col-md-6 bottommargin clearfix">
-                        <div class="feature-box fbox-center fbox-bg fbox-plain">
-                            <div class="fbox-icon">
-                                <a href="tel:099149974"><i class="icon-phone3"></i></a>
-                            </div>
-                            <h3>
-                                Speak to Us<span class="subtitle">XXXXXXXXXXXX <br>XXXXXXXXXXXX</span>
-                            </h3>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-3 col-md-6 bottommargin clearfix">
-                        <div class="feature-box fbox-center fbox-bg fbox-plain">
-                            <div class="fbox-icon">
-                                <a href="https://www.facebook.com/TANEE-Only-You-107111650633023/"><i class="icon-facebook"></i></a>
-                            </div>
-                            <h3>
-                                Facebook<span class="subtitle">XXXXXXXXXXXXXX<br><a href="#"> ติดตามเรา
-									&gt;</a></span>
-                            </h3>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-3 col-md-6 bottommargin clearfix">
-                        <div class="feature-box fbox-center fbox-bg fbox-plain">
-                            <div class="fbox-icon">
-                                <a href="http://instagram.com/tanee_brand"><i class="icon-instagram2"></i></a>
-                            </div>
-                            <h3>
-                                Instagram<span class="subtitle">XXXXXXXXXXXXXX<br><a href="#"> ติดตามเรา
-									&gt;</a></span>
-                            </h3>
-
-                        </div>
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d30832.194581248194!2d102.120842!3d14.991355!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xd07f6c90b3cf226a!2sDR.BIG%20Clinic!5e0!3m2!1sen!2sth!4v1583133541099!5m2!1sen!2sth" width="1500" height="600" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
                     </div>
                 </div>
             </div>

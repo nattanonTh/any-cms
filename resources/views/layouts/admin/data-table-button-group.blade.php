@@ -2,7 +2,7 @@
     <div class="col-xs-12">
         @if($view)
             <div class="btn-group" role="group">
-                <a type="button" href="{!! $view !!}" class="btn btn-secondary">
+                <a type="button" href="{!! $view !!}" target="_blank" class="btn btn-secondary">
                     <i class="fa fa-search" aria-hidden="true"></i>
                 </a>
             </div>

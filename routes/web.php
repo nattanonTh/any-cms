@@ -4,8 +4,13 @@ Route::namespace('Landing')
     ->group(function () {
         Route::get('/', 'HomeController@index')->name('landing-page');
         Route::get('/promotion', 'HomeController@promotion')->name('landing-promotion');
+        Route::get('/promotion/{promotion}', 'HomeController@showPromotion')->name('show-promotion');
         Route::get('/features', 'HomeController@blog')->name('landing-features');
+        Route::get('/feature/{blog}', 'HomeController@showBlog')->name('show-features');
         Route::get('/image-gallery', 'HomeController@gallery')->name('landing-image-gallery');
+        Route::get('/about-us', 'HomeController@aboutUs')->name('landing-about-us');
+        Route::get('/contact-us', 'HomeController@contactUs')->name('landing-contact-us');
+        Route::post('/contact-us', 'HomeController@saveContact')->name('contact.save');
     });
 
 Auth::routes(['register' => false]);
@@ -15,6 +20,8 @@ Route::middleware('auth')
     ->namespace('Admin')
     ->group(function () {
         Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
+        Route::get('/contact-list', 'DashboardController@contactList')->name('contact.list');
+        Route::delete('/contact-delete/{contact}', 'DashboardController@destroyContact')->name('contact.delete');
 
         Route::prefix('user')
             ->name('user.')
