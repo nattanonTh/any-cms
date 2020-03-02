@@ -3,14 +3,15 @@
 Route::namespace('Landing')
     ->group(function () {
         Route::get('/', 'HomeController@index')->name('landing-page');
-        Route::get('/promotion', 'HomeController@promotion')->name('landing-promotion');
-        Route::get('/promotion/{promotion}', 'HomeController@showPromotion')->name('show-promotion');
+        Route::get('/promotions', 'HomeController@promotion')->name('landing-promotion');
+        Route::get('/promotions/{promotion}', 'HomeController@showPromotion')->name('show-promotion');
         Route::get('/features', 'HomeController@blog')->name('landing-features');
         Route::get('/feature/{blog}', 'HomeController@showBlog')->name('show-features');
         Route::get('/image-gallery', 'HomeController@gallery')->name('landing-image-gallery');
         Route::get('/about-us', 'HomeController@aboutUs')->name('landing-about-us');
         Route::get('/contact-us', 'HomeController@contactUs')->name('landing-contact-us');
         Route::post('/contact-us', 'HomeController@saveContact')->name('contact.save');
+        Route::get('/clip-gallery', 'HomeController@video')->name('landing-video');
     });
 
 Auth::routes(['register' => false]);
@@ -106,6 +107,25 @@ Route::middleware('auth')
                         Route::post('edit', 'BannerController@update')->name('edit');
 
                         Route::delete('delete', 'BannerController@destroy')->name('delete');
+                    });
+            });
+
+        Route::prefix('video')
+            ->namespace('Video')
+            ->name('video.')
+            ->group(function () {
+                Route::get('listing', 'VideoController@index')->name('listing');
+                Route::get('list', 'VideoController@list')->name('list');
+
+                Route::get('create', 'VideoController@create')->name('create');
+                Route::post('create', 'VideoController@store')->name('create');
+
+                Route::prefix('{video}')
+                    ->group(function () {
+                        Route::get('edit', 'VideoController@edit')->name('edit');
+                        Route::post('edit', 'VideoController@update')->name('edit');
+
+                        Route::delete('delete', 'VideoController@destroy')->name('delete');
                     });
             });
 

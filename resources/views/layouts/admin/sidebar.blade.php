@@ -51,6 +51,14 @@
                         </p>
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a href="{{ route('video.listing') }}" class="nav-link {{ isActiveLink('video/*') ? 'active' : '' }}">
+                        <i class="nav-icon fa fa-video"></i>
+                        <p>
+                            Manage Videos
+                        </p>
+                    </a>
+                </li>
                 @can('manage blog')
                     <li class="nav-item">
                         <a href="{{ route('blog.listing') }}" class="nav-link {{ isActiveLink('blog/*') ? 'active' : '' }}">

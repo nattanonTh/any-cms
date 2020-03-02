@@ -47,6 +47,11 @@ class HomeController extends Controller
         return view('landing.gallery');
     }
 
+    public function video()
+    {
+        return view('landing.video');
+    }
+
     public function aboutUs()
     {
         return view('landing.about-us');
