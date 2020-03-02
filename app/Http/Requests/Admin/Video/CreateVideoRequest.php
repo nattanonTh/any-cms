@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests\Admin\Banner;
+namespace App\Http\Requests\Admin\Video;
 
 use Illuminate\Foundation\Http\FormRequest;
 

@@ -11,7 +11,6 @@
                 <div class="container clearfix">
                     <div class="clear"></div>
                         <div class="col_full nobottommargin clearfix">
-                            <h3>6 Columns</h3>
                             <div class="masonry-thumbs grid-6" data-big="3" data-lightbox="gallery">
                                 @foreach(\App\Models\Image::orderBy('id', 'desc')->get() as $image)
                                     <a href="{{ asset($image->path) }}" data-lightbox="gallery-item"><img class="image_fade" src="{{ asset($image->path) }}" alt="Gallery Thumb 1"></a>

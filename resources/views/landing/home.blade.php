@@ -81,7 +81,6 @@
                                     </a>
                                     <div class="portfolio-overlay">
                                         <a href="{{ $image->path }}" class="left-icon" data-lightbox="image"><i class="icon-line-plus"></i></a>
-                                        <a href="#" class="right-icon"><i class="icon-line-ellipsis"></i></a>
                                     </div>
                                 </div>
                             </article>
@@ -96,6 +95,30 @@
                     </div>
                 </div>
             </div>
+            <section>
+                <div class="container clearfix">
+                    <hr>
+                    <div id="posts" class="post-grid grid-container grid-3 clearfix" data-layout="fitRows">
+
+                        @foreach(\App\Models\Video::orderBy('id', 'desc')->take(3)->get() as $video)
+                            <div class="entry clearfix">
+                                {!! $video->link !!}
+                            </div>
+
+                        @endforeach
+
+                    </div>
+
+                </div>
+                <div class="row pt-2">
+                    <div class="col-12">
+                        <div class="text-center">
+                            <a href="{{ route('landing-video') }}">ดูทั้งหมด >></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="clear"></div>
+            </section>
             <div class="container">
                 <div class="row pt-5">
                     <div class="col-sm-12">

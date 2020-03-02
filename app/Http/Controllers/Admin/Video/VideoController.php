@@ -3,12 +3,11 @@
 namespace App\Http\Controllers\Admin\Video;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Admin\Banner\CreateBannerRequest;
-use App\Http\Requests\Admin\Banner\CreateVideoRequest;use App\Http\Resources\BannerResource;
-use App\Http\Resources\VideoResource;use App\Models\Banner;
-use App\Models\Video;use App\Repos\VideoRepo;
+use App\Http\Requests\Admin\Video\CreateVideoRequest;
+use App\Http\Resources\VideoResource;
+use App\Models\Video;
+use App\Repos\VideoRepo;
 use Yajra\DataTables\Facades\DataTables;
-use Illuminate\Support\Facades\Storage;
 
 class VideoController extends Controller
 {
