@@ -35,6 +35,23 @@ class MemberController extends Controller
         return view('admin.members.create');
     }
 
+    public function createExternal() {
+        return view('admin.members.create-ex');
+    }
+
+    public function storeExternal(MemberCreateRequest $request)
+    {
+        $values = $request->merge([
+            'status' => config('any_cms.member_status.normal'),
+        ])->all();
+        $values['birth_date'] = Carbon::createFromFormat('d/m/Y', $values['birth_date'])->format('Y-m-d');
+
+        // upload profile image
+        $this->memberRepo->create($values);
+
+        return 'ลงทะเบียนเรียบร้อยแล้ว กรุณาติดต่อเจ้าหน้าที่';
+    }
+
     public function store(MemberCreateRequest $request)
     {
         $values = $request->merge([

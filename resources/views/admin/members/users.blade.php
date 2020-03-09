@@ -71,14 +71,14 @@
                 },{
                     "targets": 5,
                     "render": function (data, type, row, meta) {
-                        if (row.status == 'ไม่มี') {
-                            return '<span class="badge badge-secondary">-</span>';
-                        } else if (row.status == 'ดี') {
-                            return '<span class="badge badge-success">ดี</span>';
-                        } else if (row.status == 'ปกติ') {
-                            return '<span class="badge badge-warning">ปกติ</span>';
-                        } else if (row.status == 'ปรับปรุง') {
-                            return '<span class="badge badge-danger">ปรับปรุง</span>';
+                        if (row.status == 'ปกติ') {
+                            return '<span class="badge badge-secondary">ปกติ</span>';
+                        } else if (row.status == 'VIP') {
+                            return '<span class="badge badge-success">VIP</span>';
+                        } else if (row.status == 'ติดโทษแบน') {
+                            return '<span class="badge badge-warning">ติดโทษแบน</span>';
+                        } else if (row.status == 'ไม่รับเข้าพัก') {
+                            return '<span class="badge badge-danger">ไม่รับเข้าพัก</span>';
                         }
                     }
                 }],

@@ -14,12 +14,12 @@
                         </div>
                         <div class="card-body" style="display: block;">
                             <div class="row">
-                                <div class="col-md-4">
+                                <div class="col-md-6">
                                     <div class="text-center">
                                         <img class="img-responsive img-rounded" style="max-width: 300px;" src="{!! $member->image !!}" alt="User profile picture">
                                     </div>
                                 </div>
-                                <div class="col-md-8">
+                                <div class="col-md-6">
                                     <form class="form-horizontal">
                                         <div class="form-group">
                                             <label for="inputName" class="col-sm-4 control-label">ชื่อ : </label>
@@ -116,14 +116,14 @@
                                             <label for="inputName" class="col-sm-4 control-label">สถานะ : </label>
 
                                             <div class="col-sm-8">
-                                                @if($member->status == 'ไม่มี')
-                                                    <span class="badge badge-secondary">-</span>
-                                                @elseif ($member->status == 'ดี')
-                                                    <span class="badge badge-success">ดี</span>
-                                                @elseif ($member->status == 'ปกติ')
-                                                    <span class="badge badge-warning">ปกติ</span>
-                                                @elseif ($member->status == 'ปรับปรุง')
-                                                    <span class="badge badge-danger">ปรับปรุง</span>
+                                                @if($member->status == 'ปกติ')
+                                                    <span class="badge badge-secondary">ปกติ</span>
+                                                @elseif ($member->status == 'VIP')
+                                                    <span class="badge badge-success">VIP</span>
+                                                @elseif ($member->status == 'ติดโทษแบน')
+                                                    <span class="badge badge-warning">ติดโทษแบน</span>
+                                                @elseif ($member->status == 'ไม่รับเข้าพัก')
+                                                    <span class="badge badge-danger">ไม่รับเข้าพัก</span>
                                                 @endif
                                             </div>
                                         </div>

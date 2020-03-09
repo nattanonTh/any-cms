@@ -8,8 +8,9 @@ return [
     'admin_user_id' => 1,
 
     'member_status' => [
-        'good' => ' ดี',
         'normal' => 'ปกติ',
-        'bad' => 'ปรับปรุง',
+        'baned' => 'ติดโทษแบน',
+        'vip' => 'VIP',
+        'not_serve' => 'ไม่รับเข้าพัก',
     ],
 ];

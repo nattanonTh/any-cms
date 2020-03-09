@@ -4,7 +4,7 @@ Route::get('/', function () {
     return redirect('login');
 });
 
-Auth::routes(['register' => false]);
+Auth::routes(['register' => true]);
 
 // Admin route
 Route::middleware('auth')
@@ -54,3 +54,8 @@ Route::middleware('auth')
                     });
             });
     });
+
+Route::get('register', 'Admin\MemberController@createExternal')->name('create-external');
+Route::post('register', 'Admin\MemberController@storeExternal')->name('create-external');
+
+

@@ -174,10 +174,10 @@
                             <div class="form-group">
                                 <label for="status">Status</label>
                                 <select name="status" id="status" class="form-control @error('status') is-invalid @enderror">
-                                    <option value="ไม่มี" @if($member->status == 'ไม่มี') selected @endif>ไม่มี</option>
-                                    <option value="ดี" @if($member->status == 'ดี') selected @endif>ดี</option>
                                     <option value="ปกติ" @if($member->status == 'ปกติ') selected @endif>ปกติ</option>
-                                    <option value="ปรับปรุง" @if($member->status == 'ปรับปรุง') selected @endif>ปรับปรุง</option>
+                                    <option value="ติดโทษแบน" @if($member->status == 'ติดโทษแบน') selected @endif>ติดโทษแบน</option>
+                                    <option value="VIP" @if($member->status == 'VIP') selected @endif>VIP</option>
+                                    <option value="ไม่รับเข้าพัก" @if($member->status == 'ไม่รับเข้าพัก') selected @endif>ไม่รับเข้าพัก</option>
                                 </select>
                                 @error('status')
                                 <span class="invalid-feedback" role="alert">
