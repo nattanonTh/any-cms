@@ -3,14 +3,20 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Image extends Model
 {
-    //
     public $timestamps = false;
+
     protected $table = 'images';
 
-    protected $fillable = ['type', 'name', 'size', 'path'];
+    protected $fillable = ['type', 'name', 'size', 'path', 'thumb_path', 'tags_id'];
+
+    public function tag(): BelongsTo
+    {
+        return $this->belongsTo(Tag::class, 'tags_id', 'id');
+    }
 
     public function getMbyteSize(string $type = '')
     {

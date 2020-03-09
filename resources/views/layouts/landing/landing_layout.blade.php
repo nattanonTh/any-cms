@@ -60,5 +60,7 @@
 ============================================= -->
 <script src="{{ asset('/landing/js/functions.js') }}"></script>
 
+@stack('script');
+
 </body>
 </html>

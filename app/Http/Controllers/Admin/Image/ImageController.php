@@ -3,80 +3,104 @@
 namespace App\Http\Controllers\Admin\Image;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Admin\CreateImageRequest;
+use App\Http\Resources\ImageResource;
 use App\Models\Image;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Storage;
+use App\Repos\ImageRepo;
+use App\Services\UploadImageService;
+use Exception;use Illuminate\Support\Facades\Storage;use Yajra\DataTables\Facades\DataTables;
+use App\Models\Tag;
 
 class ImageController extends Controller
 {
 
-    public function __construct()
+    protected $imageRepo;
+    protected $uploadImageService;
+
+    public function __construct(ImageRepo $imageRepo, UploadImageService $uploadImageService)
     {
-        $this->middleware('auth');
+        $this->imageRepo = $imageRepo;
+        $this->uploadImageService = $uploadImageService;
     }
 
     public function index()
     {
         //
-        return  view('admin.image.gallery', ['imageList' => Image::all()]);
+        // return  view('admin.image.gallery', ['imageList' => Image::all()]);
+        return view('admin.image.image');
     }
 
     public function create()
     {
-        //
+        $tags = Tag::all();
+        return view('admin.image.create', compact('tags'));
     }
 
-    public function store(Request $request)
+    public function store(CreateImageRequest $request)
     {
-        $path = 'gallery';
-
-        $request->validate([
-            'file' => 'mimes:png,jpg,jpeg|max:10240'
-        ]);
-
-        $file = $request->file('file');
-
-        if ($file) {
-            // save file
-            $fullPath = $file->storeAs($path, $file->hashName());
-
-            // create image record
-            $image = Image::create([
-                'name' => $file->hashName(),
-                'type' => $file->getMimeType(),
-                'size' => $file->getSize(),
-                'path' => $fullPath,
-            ]);
-            return ['status' => 1, 'newImage' => $image];
+        $values = $request->all();
+        $files = $request->file('path');
+        if ($request->hasFile('path')) {
+            $paths = $this->uploadImageService->uploadImagesWithThumbnail([$files], config('promotion.cover_path'));
+            $values['path'] = $paths->get('images')[0];
+            $values['thumb_path'] = $paths->get('thumbnails')[0];
+            $values['name'] = $files->hashName();
+            $values['type'] = $files->getMimeType();
+            $values['size'] = $files->getSize();
         }
-        return ['status' => 0, 'message' => 'file not found'];
-    }
+        $this->imageRepo->create($values);
 
-    public function show(Image $image)
-    {
-        //
+        return redirect(route('image.listing'));
     }
 
     public function edit(Image $image)
     {
-        //
+        $tags = Tag::all();
+        return view('admin.image.edit', compact('image', 'tags'));
     }
 
-    public function update(Request $request, Image $image)
+    public function update(CreateImageRequest $request, Image $image)
     {
-        //
-    }
+        $values = $request->all();
 
-    public function destroy(Request $request)
-    {
-        $image = Image::find($request->input('id'));
-        if ($image) {
-            if (Storage::exists($image->path)) {
+        $files = $request->file('path');
+        if ($request->hasFile('path')) {
+            try {
                 Storage::delete($image->path);
+                Storage::delete($image->thumb_path);
+            } catch (Exception $exception) {
+                // file not found
             }
-            $image->delete();
-            return ['status' => 1];
+            $paths = $this->uploadImageService->uploadImagesWithThumbnail([$files], config('promotion.cover_path'));
+            $values['path'] = $paths->get('images')[0];
+            $values['thumb_path'] = $paths->get('thumbnails')[0];
+            $values['name'] = $files->hashName();
+            $values['type'] = $files->getMimeType();
+            $values['size'] = $files->getSize();
         }
-        return ['status' => 0, 'message' => 'image not found.'];
+        // dd($values);
+        $this->imageRepo->update($image->id, $values);
+        return redirect(route('image.listing'));
     }
+
+    public function destroy(Image $image)
+    {
+        $this->imageRepo->delete($image->id);
+        try {
+            Storage::delete($image->path);
+            Storage::delete($image->thumb_path);
+        } catch (Exception $exception) {
+            // file not found
+        }
+
+        return redirect(route('image.listing'));
+    }
+
+    public function list()
+    {
+        return DataTables::resource(ImageResource::collection(
+            Image::all()->load('tag')
+        ))->toJson();
+    }
+
 }

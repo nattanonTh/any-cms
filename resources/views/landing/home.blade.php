@@ -72,19 +72,26 @@
                 <div class="container clearfix">
                     <hr>
                     <div class="clear"></div>
-                    <div id="portfolio" class="portfolio grid-container portfolio-nomargin clearfix" style="position: relative; height: 887.25px;">
-                        @foreach(\App\Models\Image::orderBy('id', 'desc')->take(12)->get() as $image)
-                            <article class="portfolio-item pf-media pf-icons" style="position: absolute; left: 0px; top: 0px;">
-                                <div class="portfolio-image">
-                                    <a href="#">
-                                        <img src="{{ $image->path }}" alt="Open Imagination">
-                                    </a>
-                                    <div class="portfolio-overlay">
-                                        <a href="{{ $image->path }}" class="left-icon" data-lightbox="image"><i class="icon-line-plus"></i></a>
-                                    </div>
-                                </div>
-                            </article>
-                        @endforeach
+                    @if($tags->count() > 0)
+                        <div class="row">
+                            <div class="col-md-12">
+                                <ul id="portfolio-filter" class="portfolio-filter clearfix">
+                                    <li class="activeFilter"><a href="#" data-filter="*">Show All</a></li>
+                                    @foreach($tags as $tag)
+                                        <li class=""><a href="#" data-filter=".f-{{ $tag->id }}">{{ $tag->tag_name }}</a></li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        </div>
+                    @endif
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div id="demo-gallery" class="masonry-thumbs grid-3" data-lightbox="gallery">
+                                @foreach(\App\Models\Image::orderBy('id', 'desc')->take(12)->get() as $image)
+                                    <a href="{{ $image->path }}" data-lightbox="gallery-item" class="f-{{ $image->tags_id }}"><img class="image_fade" src="{{ $image->thumb_path }}" alt="Gallery"></a>
+                                @endforeach
+                            </div>
+                        </div>
                     </div>
                     <div class="row pt-2">
                         <div class="col-12">
@@ -129,3 +136,22 @@
         </div>
     </section><!-- #content end -->
 @endsection
+
+@push('script')
+    <script>
+        $(function () {
+            jQuery(window).on( 'load', function(){
+
+                var $container = $('#demo-gallery');
+                $('#portfolio-filter a').click(function(){
+                    $('#portfolio-filter li').removeClass('activeFilter');
+                    $(this).parent('li').addClass('activeFilter');
+                    var selector = $(this).attr('data-filter');
+                    $container.isotope({ filter: selector });
+                    return false;
+                });
+
+            });
+        });
+    </script>
+@endpush

@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\SaveContact;
 use App\Models\Blog;
 use App\Models\Promotion;
+use App\Models\Tag;
 use App\Repos\ContactRepo;
 
 class HomeController extends Controller
@@ -19,7 +20,8 @@ class HomeController extends Controller
 
     public function index()
     {
-        return view('landing.home');
+        $tags = Tag::all();
+        return view('landing.home', compact('tags'));
     }
 
     public function promotion()

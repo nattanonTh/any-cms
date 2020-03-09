@@ -10,5 +10,9 @@ return [
 
     'banner' => [
         'cover_path' => 'uploads/banner/cover',
-    ]
+    ],
+
+    'image' => [
+        'path' => 'uploads/image',
+    ],
 ];

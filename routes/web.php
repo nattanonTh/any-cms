@@ -71,6 +71,25 @@ Route::middleware('auth')
                     });
             });
 
+        Route::prefix('tag')
+            ->namespace('Tag')
+            ->name('tag.')
+            ->group(function () {
+                Route::get('listing', 'TagController@index')->name('listing');
+                Route::get('list', 'TagController@list')->name('list');
+
+                Route::get('create', 'TagController@create')->name('create');
+                Route::post('create', 'TagController@store')->name('create');
+
+                Route::prefix('{tag}')
+                    ->group(function () {
+                        Route::get('edit', 'TagController@edit')->name('edit');
+                        Route::post('edit', 'TagController@update')->name('edit');
+
+                        Route::delete('delete', 'TagController@destroy')->name('delete');
+                    });
+            });
+
         Route::prefix('promotion')
             ->namespace('Promotion')
             ->name('promotion.')
@@ -133,9 +152,18 @@ Route::middleware('auth')
             ->namespace('Image')
             ->name('image.')
             ->group(function () {
-                Route::get('/gallery', 'ImageController@index')->name('listing');
-                Route::post('/gallery/upload', 'ImageController@store');
-                Route::post('/gallery/delete', 'ImageController@destroy');
-                Route::get('/all-gallery', 'HomeController@gallery');
+                Route::get('listing', 'ImageController@index')->name('listing');
+                Route::get('list', 'ImageController@list')->name('list');
+
+                Route::get('create', 'ImageController@create')->name('create');
+                Route::post('create', 'ImageController@store')->name('create');
+
+                Route::prefix('{image}')
+                    ->group(function () {
+                        Route::get('edit', 'ImageController@edit')->name('edit');
+                        Route::post('edit', 'ImageController@update')->name('edit');
+
+                        Route::delete('delete', 'ImageController@destroy')->name('delete');
+                    });
             });
     });

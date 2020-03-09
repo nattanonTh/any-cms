@@ -4,7 +4,7 @@ namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class PromotionResource extends JsonResource
+class TagResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -15,13 +15,11 @@ class PromotionResource extends JsonResource
     public function toArray($request)
     {
         return [
-            'title' => $this->title,
-            'image_path' => asset($this->thumbnail_path),
+            'tag_name' => $this->tag_name,
             'created_at' => $this->created_at->format('Y-m-d H:i'),
             'id' => $this->id,
-            'edit_link' => route('promotion.edit', ['promotion' => $this->id]),
-            'delete_link' => route('promotion.delete', ['promotion' => $this->id]),
-            'view_link' => route('show-promotion', ['promotion' => $this->id]),
+            'edit_link' => route('tag.edit', ['tag' => $this->id]),
+            'delete_link' => route('tag.delete', ['tag' => $this->id]),
         ];
     }
 }

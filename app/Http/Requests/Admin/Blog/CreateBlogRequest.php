@@ -26,7 +26,7 @@ class CreateBlogRequest extends FormRequest
         return [
             'title' => 'required',
             'content' => 'required',
-            'cover' => 'required|image|max:5120',
+            'cover' => 'nullable|image|max:5120',
         ];
     }
 }

@@ -8,7 +8,7 @@ use App\Http\Resources\BlogResource;
 use App\Models\Blog;
 use App\Repos\BlogRepo;
 use App\Services\UploadImageService;
-use Yajra\DataTables\Facades\DataTables;
+use Exception;use Yajra\DataTables\Facades\DataTables;
 use Illuminate\Support\Facades\Storage;
 
 class BlogController extends Controller
@@ -56,7 +56,12 @@ class BlogController extends Controller
         $values = $request->all();
         $files = $request->file('cover');
         if ($request->hasFile('cover')) {
-            Storage::delete($blog->image_path);
+            try {
+                Storage::delete($blog->image_path);
+                Storage::delete($blog->thumbnail_path);
+            } catch (Exception $exception) {
+                // file not found
+            }
             $paths = $this->uploadImageService->uploadImagesWithThumbnail([$files], config('blog.cover_path'));
             $values['image_path'] = $paths->get('images')[0];
             $values['thumbnail_path'] = $paths->get('thumbnails')[0];
@@ -68,6 +73,12 @@ class BlogController extends Controller
     public function destroy(Blog $blog)
     {
         $this->blogRepo->delete($blog->id);
+        try {
+            Storage::delete($blog->image_path);
+            Storage::delete($blog->thumbnail_path);
+        } catch (Exception $exception) {
+            // file not found
+        }
 
         return redirect(route('blog.listing'));
     }

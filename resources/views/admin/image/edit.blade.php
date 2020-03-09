@@ -2,13 +2,13 @@
 
 @section('content')
     <section class="content">
-        <form method="POST" action="{{ route('promotion.edit', $promotion->id) }}" enctype="multipart/form-data">
+        <form method="POST" action="{{ route('image.edit', $image->id) }}" enctype="multipart/form-data">
             @csrf
             <div class="row pt-lg-5">
                 <div class="col-md-10 offset-1">
                     <div class="card card-default">
                         <div class="card-header">
-                            <h3 class="card-title">Edit Blog</h3>
+                            <h3 class="card-title">Add Image</h3>
                             <div class="card-tools">
                                 <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
                                     <i class="fas fa-minus"></i></button>
@@ -17,15 +17,15 @@
 
                         <div class="card-body" style="display: block;">
                             <div class="form-group">
-                                <label for="email">Cover Photo</label>
+                                <label for="email">Photo</label>
 
                                 <div class="custom-file mb-3">
-                                    <input type="file" class="custom-file-input @error('cover') is-invalid @enderror"
-                                           id="cover" name="cover">
+                                    <input type="file" class="custom-file-input @error('path') is-invalid @enderror"
+                                           id="path" name="path">
                                     <label class="custom-file-label" for="customFile">Choose file</label>
                                 </div>
                                 <div style="width: 100%" class="align-content-center">
-                                    <img id="preview" src="{{ asset($promotion->image_path) }}" alt="preview  image"
+                                    <img id="preview" src="{{ asset($image->path) }}" alt="preview  image"
                                          style="
                                              display: block;
                                              margin-left: auto;
@@ -34,31 +34,28 @@
                                          "/>
                                 </div>
 
-                                @error('cover')
+                                @error('path')
                                 <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
                             </div>
-
-                            <div class="form-group">
-                                <label for="title">Title</label>
-                                <input type="text" id="title" name="title" class="form-control @error('title') is-invalid @enderror" value="{{ $promotion->title }}" placeholder="Title" required>
-                                @error('title')
-                                <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-
-                            <div class="form-group">
-                                    <textarea id="content" name="content" class="form-control @error('content') is-invalid @enderror">{!! $promotion->content !!}</textarea>
-                                    @error('content')
+                            @if($tags->count() > 0)
+                                <div class="form-group">
+                                    <label for="email">Tag name</label>
+                                    <select name="tags_id" id="tags_id" class="form-control @error('tags_id') is-invalid @enderror">
+                                        <option value="">No tag</option>
+                                        @foreach($tags as $tag)
+                                            <option value="{{ $tag->id }}" @if($image->tags_id == $tag->id) selected @endif>{{ $tag->tag_name }}</option>
+                                        @endforeach
+                                    </select>
+                                    @error('tags_id')
                                     <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
+                                            <strong>{{ $message }}</strong>
+                                        </span>
                                     @enderror
-                            </div>
+                                </div>
+                            @endif
                         </div>
                         <!-- /.card-body -->
                     </div>
@@ -77,23 +74,6 @@
 
 @section('script')
     <script>
-        $(document).ready(function() {
-            $('#content').summernote({
-                placeholder: 'Hello world',
-                tabsize: 2,
-                height: 400,
-                maximumImageFileSize: 5335040,
-                toolbar: [
-                    ['insert', ['picture', 'video', 'link', 'table', 'hr']],
-                    ['style', ['bold', 'italic', 'underline', 'clear']],
-                    ['font', ['fontsizeunit', 'font']],
-                    ['fontsize', ['fontsize']],
-                    ['color', ['color']],
-                    ['para', ['ul', 'ol', 'paragraph']],
-                    ['height', ['height']]
-                ],
-            });
-        });
 
         $(".custom-file-input").on("change", function() {
             if(this.files[0].size > 5048580){
@@ -107,3 +87,4 @@
         });
     </script>
 @endsection
+

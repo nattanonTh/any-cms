@@ -72,6 +72,14 @@
                     </li>
                 @endcan
                 <li class="nav-item">
+                    <a href="{{ route('tag.listing') }}" class="nav-link {{ isActiveLink('tag/*') ? 'active' : '' }}">
+                        <i class="nav-icon fa fa-tag"></i>
+                        <p>
+                            Tags
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a href="{{ route('image.listing') }}" class="nav-link {{ isActiveLink('image/*') ? 'active' : '' }}">
                         <i class="nav-icon fa fa-image"></i>
                         <p>

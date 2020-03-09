@@ -43,7 +43,7 @@
 
                             <div class="form-group">
                                 <label for="email">Link</label>
-                                <input type="text" id="link" value="{!! $banner->link !!}" name="link" class="form-control @error('link') is-invalid @enderror" placeholder="link" required>
+                                <input type="text" id="link" value="{!! $banner->link !!}" name="link" class="form-control @error('link') is-invalid @enderror" placeholder="link">
                                 @error('link')
                                 <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -74,6 +74,15 @@
                 tabsize: 2,
                 height: 400,
                 maximumImageFileSize: 5335040,
+                toolbar: [
+                    ['insert', ['picture', 'video', 'link', 'table', 'hr']],
+                    ['style', ['bold', 'italic', 'underline', 'clear']],
+                    ['font', ['fontsizeunit', 'font']],
+                    ['fontsize', ['fontsize']],
+                    ['color', ['color']],
+                    ['para', ['ul', 'ol', 'paragraph']],
+                    ['height', ['height']]
+                ],
             });
         });
 

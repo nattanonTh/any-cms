@@ -8,7 +8,7 @@ use App\Http\Resources\BannerResource;
 use App\Models\Banner;
 use App\Repos\BannerRepo;
 use App\Services\UploadImageService;
-use Yajra\DataTables\Facades\DataTables;
+use Exception;use Yajra\DataTables\Facades\DataTables;
 use Illuminate\Support\Facades\Storage;
 
 class BannerController extends Controller
@@ -56,7 +56,12 @@ class BannerController extends Controller
         $values = $request->all();
         $files = $request->file('cover');
         if ($request->hasFile('cover')) {
-            Storage::delete($banner->image_path);
+            try {
+                Storage::delete($banner->image_path);
+                Storage::delete($banner->thumbnail_path);
+            } catch (Exception $exception) {
+                // file not found
+            }
             $paths = $this->uploadImageService->uploadImagesWithThumbnail([$files], config('any-cms.banner.cover_path'));
             $values['image_path'] = $paths->get('images')[0];
             $values['thumbnail_path'] = $paths->get('thumbnails')[0];
@@ -68,6 +73,12 @@ class BannerController extends Controller
     public function destroy(Banner $banner)
     {
         $this->bannerRepo->delete($banner->id);
+        try {
+            Storage::delete($banner->image_path);
+            Storage::delete($banner->thumbnail_path);
+        } catch (Exception $exception) {
+            // file not found
+        }
 
         return redirect(route('banner.listing'));
     }
