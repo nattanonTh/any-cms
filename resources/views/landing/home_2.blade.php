@@ -1,9 +1,59 @@
-@extends('layouts.landing.landing_layout')
+@extends('layouts.landing.landing_layout_2')
 
 @section('content')
-    <div id="home" class="page-section" style="position:absolute;top:0;left:0;width:100%;height:200px;z-index:-2;"></div>
+    <header id="header" class="transparent-header full-header" data-sticky-class="not-dark">
 
-    @include('layouts.landing.slider', ['banners' => \App\Models\Banner::all()])
+        <div id="header-wrap">
+
+            <div class="container clearfix">
+
+                <div id="primary-menu-trigger"><i class="icon-reorder"></i></div>
+
+                <!-- Logo
+                ============================================= -->
+                <div id="logo">
+                    <a href="/" class="standard-logo" data-dark-logo="{{ asset('landing/clinic/logo.png') }}"><img class="divcenter" src="{{ asset('landing/clinic/logo.png') }}" alt="Canvas Logo"></a>
+                    <a href="/" class="retina-logo" data-dark-logo="{{ asset('landing/clinic/logo.png') }}"><img class="divcenter" src="{{ asset('landing/clinic/logo.png') }}" alt="Canvas Logo"></a>
+                </div><!-- #logo end -->
+
+                <!-- Primary Navigation
+                ============================================= -->
+                <nav id="primary-menu" class="dark">
+
+                    <ul>
+                        <li class="{{ isActiveLink('/') ? 'current' : '' }}"><a href="{{ route('landing-page') }}"><div>{{ __('landing_page.menu.home') }}</div></a></li>
+                        <li class="{{ isActiveLink('features') ? 'current' : '' }}"><a href="{{ route('landing-features') }}"><div>{{ __('landing_page.menu.features') }}</div></a></li>
+                        <li class="{{ isActiveLink('promotions') ? 'current' : '' }}"><a href="{{ route('landing-promotion') }}"><div>{{ __('landing_page.menu.promotion') }}</div></a></li>
+                        <li class="{{ isActiveLink('image-gallery') ? 'current' : '' }}"><a href="{{ route('landing-image-gallery') }}"><div>{{ __('landing_page.menu.pic_review') }}</div></a></li>
+                        <li class="{{ isActiveLink('clip-gallery') ? 'current' : '' }}"><a href="{{ route('landing-video') }}"><div>{{ __('landing_page.menu.clip_review') }}</div></a></li>
+                        <li class="{{ isActiveLink('about-us') ? 'current' : '' }}"><a href="{{ route('landing-about-us') }}"><div>{{ __('landing_page.menu.about_us') }}</div></a></li>
+                        <li class="{{ isActiveLink('contact-us') ? 'current' : '' }}"><a href="{{ route('landing-contact-us') }}"><div>{{ __('landing_page.menu.contact_us') }}</div></a></li>
+                    </ul>
+
+                </nav>
+
+            </div>
+
+        </div>
+
+    </header>
+
+    <section id="slider" class="slider-element slider-parallax swiper_wrapper full-screen clearfix">
+        <div class="slider-parallax-inner">
+            <div class="swiper-container swiper-parent">
+                <div class="swiper-wrapper">
+                    @foreach(\App\Models\Banner::all() as $banner)
+                        <div class="swiper-slide dark" style="background-image: url({{ asset($banner->image_path) }});max-height: 1000px" onclick="clickSlide(this)" data-url="{!! $banner->link !!}">
+                        </div>
+                    @endforeach
+                </div>
+                <div class="slider-arrow-left"><i class="icon-angle-left"></i></div>
+                <div class="slider-arrow-right"><i class="icon-angle-right"></i></div>
+            </div>
+            <a href="#" data-scrollto="#content" data-offset="100" class="dark one-page-arrow"><i class="icon-angle-down infinite animated fadeInDown"></i></a>
+        </div>
+    </section>
+
     <section id="content">
         <div class="text-center" style="padding-top: 10px;background-color: #182643;">
             <h3 style="color: white">xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</h3>
@@ -30,7 +80,7 @@
                 </div>
             </div>
             <section id="section-about" class="page-section">
-                <div class="section dark parallax nobottommargin" style="background-image: url('{{ asset('landing/black-dark-vintage-pattern-4224.jpg') }}');padding-top: 300px;" data-bottom-top="background-position:0px 700px;" data-top-bottom="background-position:0px -300px;">
+                <div class="section dark parallax nobottommargin" style="background-image: url('{{ asset('landing/black-dark-vintage-pattern-4224.jpg') }}');padding-top: 500px; max-height: 1000px;" data-bottom-top="background-position:0px00px;" data-top-bottom="background-position:0px -300px;">
 {{--                    <div class="container clearfix">--}}
 {{--                        <div class="nobottommargin " data-animate="bounceIn">--}}
 {{--                            <a href="tel:043-333333333" class="button button-large button-circle button-aqua active">คุยกับเรา 043-333333333</a>--}}
@@ -154,6 +204,12 @@
                 });
 
             });
+
+            function clickSlide(el) {
+                if (el.dataset.url != '') {
+                    window.open(el.dataset.url);
+                }
+            }
         });
     </script>
 @endpush

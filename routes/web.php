@@ -2,7 +2,10 @@
 
 Route::namespace('Landing')
     ->group(function () {
-        Route::get('/', 'HomeController@index')->name('landing-page');
+        Route::get('/', 'HomeController@index');
+        Route::get('/landing-page', 'HomeController@landing')->name('landing-page');
+        Route::get('/landing-page-2', 'HomeController@landing2')->name('landing-page');
+        Route::get('/landing-page-3', 'HomeController@landing3')->name('landing-page');
         Route::get('/promotions', 'HomeController@promotion')->name('landing-promotion');
         Route::get('/promotions/{promotion}', 'HomeController@showPromotion')->name('show-promotion');
         Route::get('/features', 'HomeController@blog')->name('landing-features');

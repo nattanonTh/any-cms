@@ -35,8 +35,6 @@
 <!-- Document Wrapper ============================================= -->
 <div id="wrapper" class="clearfix">
 
-    @include('layouts.landing.header')
-
     <div class="clear"></div>
 
     <!-- Content ============================================= -->

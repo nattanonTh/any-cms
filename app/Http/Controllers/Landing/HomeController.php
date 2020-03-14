@@ -25,6 +25,24 @@ class HomeController extends Controller
         return redirect()->to(route('tattoopromotion'));
     }
 
+    public function landing()
+    {
+        $tags = Tag::all();
+        return view('landing.home', compact('tags'));
+    }
+
+    public function landing2()
+    {
+        $tags = Tag::all();
+        return view('landing.home_2', compact('tags'));
+    }
+
+    public function landing3()
+    {
+        $tags = Tag::all();
+        return view('landing.home_3', compact('tags'));
+    }
+
     public function promotion()
     {
         return view('landing.all-promotion');
