@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Admin\Promotion;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\Promotion\CreatePromotionRequest;
-use App\Http\Resources\PromotionResource;
+use App\Http\Resources\PromoResource;
 use App\Models\Promotion;
 use App\Repos\PromotionRepo;
 use App\Services\UploadImageService;
@@ -85,7 +85,7 @@ class PromotionController extends Controller
 
     public function list()
     {
-        return DataTables::resource(PromotionResource::collection(
+        return DataTables::resource(PromoResource::collection(
             Promotion::all()
         ))->toJson();
     }
