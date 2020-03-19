@@ -14,7 +14,7 @@
 
                 <!-- Postcontent
                 ============================================= -->
-                <div class="postcontent nobottommargin">
+                <div class="postcontent nobottommargin" >
 
                     <div class="form-widget">
 
@@ -76,22 +76,6 @@
                     </div>
 
                 </div><!-- .postcontent end -->
-
-                <!-- Sidebar
-                ============================================= -->
-                <div class="sidebar col_last nobottommargin">
-
-                    <address>
-                        <strong>Headquarters:</strong><br>
-                        795 Folsom Ave, Suite 600<br>
-                        San Francisco, CA 94107<br>
-                    </address>
-                    <abbr title="Phone Number"><strong>Phone:</strong></abbr> (91) 8547 632521<br>
-                    <abbr title="Fax"><strong>Fax:</strong></abbr> (91) 11 4752 1433<br>
-                    <abbr title="Email Address"><strong>Email:</strong></abbr> info@canvas.com
-
-
-                </div><!-- .sidebar end -->
 
             </div>
 
