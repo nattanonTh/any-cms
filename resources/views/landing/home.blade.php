@@ -28,10 +28,13 @@
                 </div>
             </div>
             <section id="section-about" class="page-section">
-                <div class="section dark parallax nobottommargin" style="padding: 180px 0;background-image: url('{{ asset('images/landing/Image 36.png') }}');" data-bottom-top="background-position:0px 300px;" data-top-bottom="background-position:0px -300px;">
-                    <div class="container clearfix">
+                <div class="section dark parallax nobottommargin" style="padding: 180px 0;background-image: url('{{ asset('images/landing/Image 36.png') }}');" data-bottom-top="background-position:0px 300px;" data-top-bottom="background-position:0px -250px;">
+                <div class="container clearfix">
+                        <div class="pl-4">
+                            <strong><h1 style="color: #182643;font-size: 4em;">เพราะเราบริการด้วยใจ</h1></strong>
+                        </div>
                         <div class="nobottommargin " data-animate="bounceIn">
-                            <a href="tel:043-333333333" class="button button-large button-circle button-aqua active">คุยกับเรา 043-333333333</a>
+                            <a href="tel:0986539889" class="button button-large button-circle button-aqua active">คุยกับเรา 098-653-9889</a>
                         </div>
                     </div>
                 </div>

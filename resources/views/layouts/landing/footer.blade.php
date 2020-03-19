@@ -1,50 +1,38 @@
-<div class="container mb-5">
+<div class="container mb-5 text-center">
     <hr>
     <div class="row clear-bottommargin pt-5">
-        <div class="col-lg-3 col-md-6 bottommargin clearfix">
+        <div class="col-lg-4 col-md-6 bottommargin clearfix">
             <div class="feature-box fbox-center fbox-bg fbox-plain">
                 <div class="fbox-icon">
-                    <a href="#google-map"><i class="icon-map-marker2"></i></a>
+                    <a href="https://www.google.com/maps?ll=14.991355,102.120842&z=13&t=m&hl=en&gl=TH&mapclient=embed&cid=15023846250679050858" target="_blank"><i class="icon-map-marker2"></i></a>
                 </div>
                 <h3>
-                    XXXXXXXXXXXXXX<br>XXXXXXXXXXXXXXX<span class="subtitle">XXXXXXXXXXXXXXX </span>
+                    1340/25 ถ.สุรนารายน์ <br>ต.ในเมือง อ.เมือง จ.นครราชสีมา<br>
+                    Korat, Thailand 30000<br>
+                    <span class="subtitle">11:00 - 20:00 น.</span>
                 </h3>
             </div>
         </div>
 
-        <div class="col-lg-3 col-md-6 bottommargin clearfix">
+        <div class="col-lg-4 col-md-6 bottommargin clearfix">
             <div class="feature-box fbox-center fbox-bg fbox-plain">
                 <div class="fbox-icon">
-                    <a href="tel:099149974"><i class="icon-phone3"></i></a>
+                    <a href="tel:0986539889"><i class="icon-phone3"></i></a>
                 </div>
                 <h3>
-                    Speak to Us<span class="subtitle">XXXXXXXXXXXX <br>XXXXXXXXXXXX</span>
+                    Speak to Us<span class="subtitle">098-653-9889</span>
                 </h3>
             </div>
         </div>
 
-        <div class="col-lg-3 col-md-6 bottommargin clearfix">
+        <div class="col-lg-4 col-md-6 bottommargin clearfix">
             <div class="feature-box fbox-center fbox-bg fbox-plain">
                 <div class="fbox-icon">
-                    <a href="https://www.facebook.com/TANEE-Only-You-107111650633023/"><i class="icon-facebook"></i></a>
+                    <a href="https://www.facebook.com/doctorbigclinic/" target="_blank"><i class="icon-facebook"></i></a>
                 </div>
                 <h3>
-                    Facebook<span class="subtitle">XXXXXXXXXXXXXX<br><a href="#"> ติดตามเรา
-									&gt;</a></span>
+                    Facebook<span class="subtitle"><br><a href="https://www.facebook.com/doctorbigclinic/" target="_blank"> doctorbihomgclinic</a></span>
                 </h3>
-            </div>
-        </div>
-
-        <div class="col-lg-3 col-md-6 bottommargin clearfix">
-            <div class="feature-box fbox-center fbox-bg fbox-plain">
-                <div class="fbox-icon">
-                    <a href="http://instagram.com/tanee_brand"><i class="icon-instagram2"></i></a>
-                </div>
-                <h3>
-                    Instagram<span class="subtitle">XXXXXXXXXXXXXX<br><a href="#"> ติดตามเรา
-									&gt;</a></span>
-                </h3>
-
             </div>
         </div>
     </div>
@@ -58,79 +46,34 @@
         ============================================= -->
         <div class="footer-widgets-wrap clearfix">
 
-            <div class="col_two_third">
+            <div class="col_one_third" style="width: 50%;">
 
-                <div class="col_one_third">
+                <div class="col_half">
 
                     <div class="widget clearfix">
 
                         <img src="{{ asset('/landing/footer-widget-logo.png') }}" alt="" class="footer-logo">
 
-                        <p>We believe in <strong>Simple</strong>, <strong>Creative</strong> &amp; <strong>Flexible</strong> Design Standards.</p>
+                        <p>DR.BIG Clinic <strong>เสริมจมูกเกาหลีแท้</strong> <strong>เสริมคาง</strong> <strong>ปรับรูปหน้า</strong> ดูแลผิว By <strong>หมอบิ๊ก</strong></p>
 
                     </div>
 
                 </div>
 
-                <div class="col_one_third">
+                <div class="col_last">
 
                     <div class="widget widget_links clearfix">
 
-                        <h4>Blogroll</h4>
-
                         <ul>
-                            <li><a href="http://codex.wordpress.org/">Documentation</a></li>
-                            <li><a href="http://wordpress.org/support/forum/requests-and-feedback">Feedback</a></li>
-                            <li><a href="http://wordpress.org/extend/plugins/">Plugins</a></li>
-                            <li><a href="http://wordpress.org/support/">Support Forums</a></li>
-                            <li><a href="http://wordpress.org/extend/themes/">Themes</a></li>
-                            <li><a href="http://wordpress.org/news/">WordPress Blog</a></li>
-                            <li><a href="http://planet.wordpress.org/">WordPress Planet</a></li>
+                            <li class="{{ isActiveLink('/') ? 'current' : '' }}"><a href="{{ route('landing-page') }}"><div>{{ __('landing_page.menu.home') }}</div></a></li>
+                            <li class="{{ isActiveLink('features') ? 'current' : '' }}"><a href="{{ route('landing-features') }}"><div>{{ __('landing_page.menu.features') }}</div></a></li>
+                            <li class="{{ isActiveLink('promotions') ? 'current' : '' }}"><a href="{{ route('landing-promotion') }}"><div>{{ __('landing_page.menu.promotion') }}</div></a></li>
+                            <li class="{{ isActiveLink('image-gallery') ? 'current' : '' }}"><a href="{{ route('landing-image-gallery') }}"><div>{{ __('landing_page.menu.pic_review') }}</div></a></li>
+                            <li class="{{ isActiveLink('clip-gallery') ? 'current' : '' }}"><a href="{{ route('landing-video') }}"><div>{{ __('landing_page.menu.clip_review') }}</div></a></li>
+                            <li class="{{ isActiveLink('about-us') ? 'current' : '' }}"><a href="{{ route('landing-about-us') }}"><div>{{ __('landing_page.menu.about_us') }}</div></a></li>
+                            <li class="{{ isActiveLink('contact-us') ? 'current' : '' }}"><a href="{{ route('landing-contact-us') }}"><div>{{ __('landing_page.menu.contact_us') }}</div></a></li>
                         </ul>
 
-                    </div>
-
-                </div>
-
-                <div class="col_one_third col_last">
-
-                    <div class="widget clearfix">
-                        <h4>Recent Posts</h4>
-
-                        <div id="post-list-footer">
-                            <div class="spost clearfix">
-                                <div class="entry-c">
-                                    <div class="entry-title">
-                                        <h4><a href="#">Lorem ipsum dolor sit amet, consectetur</a></h4>
-                                    </div>
-                                    <ul class="entry-meta">
-                                        <li>10th July 2014</li>
-                                    </ul>
-                                </div>
-                            </div>
-
-                            <div class="spost clearfix">
-                                <div class="entry-c">
-                                    <div class="entry-title">
-                                        <h4><a href="#">Elit Assumenda vel amet dolorum quasi</a></h4>
-                                    </div>
-                                    <ul class="entry-meta">
-                                        <li>10th July 2014</li>
-                                    </ul>
-                                </div>
-                            </div>
-
-                            <div class="spost clearfix">
-                                <div class="entry-c">
-                                    <div class="entry-title">
-                                        <h4><a href="#">Debitis nihil placeat, illum est nisi</a></h4>
-                                    </div>
-                                    <ul class="entry-meta">
-                                        <li>10th July 2014</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
                     </div>
 
                 </div>
@@ -139,130 +82,11 @@
 
             <div class="col_one_third col_last">
 
-                <div class="widget clearfix" style="margin-bottom: -20px;">
-
-                    <div class="row">
-
-                        <div class="col-lg-6 bottommargin-sm">
-                            <div class="counter counter-small"><span data-from="50" data-to="15065421" data-refresh-interval="80" data-speed="3000" data-comma="true"></span></div>
-                            <h5 class="nobottommargin">Total Downloads</h5>
-                        </div>
-
-                        <div class="col-lg-6 bottommargin-sm">
-                            <div class="counter counter-small"><span data-from="100" data-to="18465" data-refresh-interval="50" data-speed="2000" data-comma="true"></span></div>
-                            <h5 class="nobottommargin">Clients</h5>
-                        </div>
-
-                    </div>
-
-                </div>
-
-                <div class="widget subscribe-widget clearfix">
-                    <h5><strong>Subscribe</strong> to Our Newsletter to get Important News, Amazing Offers &amp; Inside Scoops:</h5>
-                    <div class="widget-subscribe-form-result"></div>
-                    <form id="widget-subscribe-form" action="include/subscribe.php" method="post" class="nobottommargin">
-                        <div class="input-group divcenter">
-                            <div class="input-group-prepend">
-                                <div class="input-group-text"><i class="icon-email2"></i></div>
-                            </div>
-                            <input type="email" id="widget-subscribe-form-email" name="widget-subscribe-form-email" class="form-control required email" placeholder="Enter your Email">
-                            <div class="input-group-append">
-                                <button class="btn btn-success" type="submit">Subscribe</button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-
-                <div class="widget clearfix" style="margin-bottom: -20px;">
-
-                    <div class="row">
-
-                        <div class="col-lg-6 clearfix bottommargin-sm">
-                            <a href="#" class="social-icon si-dark si-colored si-facebook nobottommargin" style="margin-right: 10px;">
-                                <i class="icon-facebook"></i>
-                                <i class="icon-facebook"></i>
-                            </a>
-                            <a href="#"><small style="display: block; margin-top: 3px;"><strong>Like us</strong><br>on Facebook</small></a>
-                        </div>
-                        <div class="col-lg-6 clearfix">
-                            <a href="#" class="social-icon si-dark si-colored si-rss nobottommargin" style="margin-right: 10px;">
-                                <i class="icon-rss"></i>
-                                <i class="icon-rss"></i>
-                            </a>
-                            <a href="#"><small style="display: block; margin-top: 3px;"><strong>Subscribe</strong><br>to RSS Feeds</small></a>
-                        </div>
-
-                    </div>
-
-                </div>
+                <div class="fb-page" data-href="https://www.facebook.com/doctorbigclinic/" data-tabs="timeline" data-width="" data-height="" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/doctorbigclinic/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/doctorbigclinic/">DR.BIG Clinic เสริมจมูกเกาหลีแท้ เสริมคาง ปรับรูปหน้า ดูแลผิว By หมอบิ๊ก</a></blockquote></div>
 
             </div>
 
         </div><!-- .footer-widgets-wrap end -->
 
     </div>
-
-    <!-- Copyrights
-    ============================================= -->
-    <div id="copyrights">
-
-        <div class="container clearfix">
-
-            <div class="col_half">
-                Copyrights &copy; 2014 All Rights Reserved by Canvas Inc.<br>
-                <div class="copyright-links"><a href="#">Terms of Use</a> / <a href="#">Privacy Policy</a></div>
-            </div>
-
-            <div class="col_half col_last tright">
-                <div class="fright clearfix">
-                    <a href="#" class="social-icon si-small si-borderless si-facebook">
-                        <i class="icon-facebook"></i>
-                        <i class="icon-facebook"></i>
-                    </a>
-
-                    <a href="#" class="social-icon si-small si-borderless si-twitter">
-                        <i class="icon-twitter"></i>
-                        <i class="icon-twitter"></i>
-                    </a>
-
-                    <a href="#" class="social-icon si-small si-borderless si-gplus">
-                        <i class="icon-gplus"></i>
-                        <i class="icon-gplus"></i>
-                    </a>
-
-                    <a href="#" class="social-icon si-small si-borderless si-pinterest">
-                        <i class="icon-pinterest"></i>
-                        <i class="icon-pinterest"></i>
-                    </a>
-
-                    <a href="#" class="social-icon si-small si-borderless si-vimeo">
-                        <i class="icon-vimeo"></i>
-                        <i class="icon-vimeo"></i>
-                    </a>
-
-                    <a href="#" class="social-icon si-small si-borderless si-github">
-                        <i class="icon-github"></i>
-                        <i class="icon-github"></i>
-                    </a>
-
-                    <a href="#" class="social-icon si-small si-borderless si-yahoo">
-                        <i class="icon-yahoo"></i>
-                        <i class="icon-yahoo"></i>
-                    </a>
-
-                    <a href="#" class="social-icon si-small si-borderless si-linkedin">
-                        <i class="icon-linkedin"></i>
-                        <i class="icon-linkedin"></i>
-                    </a>
-                </div>
-
-                <div class="clear"></div>
-
-                <i class="icon-envelope2"></i> info@canvas.com <span class="middot">&middot;</span> <i class="icon-headphones"></i> +91-11-6541-6369 <span class="middot">&middot;</span> <i class="icon-skype2"></i> CanvasOnSkype
-            </div>
-
-        </div>
-
-    </div><!-- #copyrights end -->
-
 </footer><!-- #footer end -->

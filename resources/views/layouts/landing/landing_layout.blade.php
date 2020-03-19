@@ -52,7 +52,8 @@
 
 <!-- External JavaScripts ============================================= -->
 <link rel="stylesheet" href="{{ asset('/landing/css/responsive.css') }}" type="text/css" />
-
+<div id="fb-root"></div>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/th_TH/sdk.js#xfbml=1&version=v6.0&appId=687142314767533&autoLogAppEvents=1"></script>
 <script src="{{ asset('/landing/js/jquery.js') }}"></script>
 <script src="{{ asset('/landing/js/plugins.js') }}"></script>
 
@@ -60,7 +61,7 @@
 ============================================= -->
 <script src="{{ asset('/landing/js/functions.js') }}"></script>
 
-@stack('script');
+@stack('script')
 
 </body>
 </html>
