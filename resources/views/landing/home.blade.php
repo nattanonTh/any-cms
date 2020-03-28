@@ -81,7 +81,9 @@
                                 <ul id="portfolio-filter" class="portfolio-filter clearfix">
                                     <li class="activeFilter"><a href="#" data-filter="*">Show All</a></li>
                                     @foreach($tags as $tag)
-                                        <li class=""><a href="#" data-filter=".f-{{ $tag->id }}">{{ $tag->tag_name }}</a></li>
+                                        @if($tag->image->count() > 0)
+                                            <li class=""><a href="#" data-filter=".f-{{ $tag->id }}">{{ $tag->tag_name }}</a></li>
+                                        @endif
                                     @endforeach
                                 </ul>
                             </div>
@@ -137,7 +139,6 @@
                 </div>
             </div>
         </div>
-    </section><!-- #content end -->
 @endsection
 
 @push('script')

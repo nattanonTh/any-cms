@@ -4,6 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Tag extends Model
 {
@@ -11,8 +13,8 @@ class Tag extends Model
 
     protected $fillable = ['tag_name'];
 
-    public function image(): BelongsTo
+    public function image(): HasMany
     {
-        return $this->belongsTo(Image::class, 'tags_id');
+        return $this->hasMany(Image::class, 'tags_id');
     }
 }

@@ -46,7 +46,8 @@ class HomeController extends Controller
 
     public function gallery()
     {
-        return view('landing.gallery');
+        $tags = Tag::all();
+        return view('landing.gallery', compact('tags'));
     }
 
     public function video()

@@ -42,8 +42,12 @@
 
                         {!! $promotion->content !!}
 
-                            <div class="clear"></div>
+                        </div>
 
+                        <div class="text-center pt-5">
+                            <a class="button button-large button-circle button-aqua active" href="https://lin.ee/6kPReXr" style="background-color: #182643">
+                                สอบถามเพิ่มเติม/ชื้อและจองคิว
+                            </a>
                         </div>
                     </div><!-- .entry end -->
                 </div>
