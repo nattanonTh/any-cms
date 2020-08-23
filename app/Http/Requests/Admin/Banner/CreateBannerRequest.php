@@ -24,7 +24,7 @@ class CreateBannerRequest extends FormRequest
     public function rules()
     {
         return [
-            'cover' => 'nullable|image|max:5120',
+            'cover' => 'nullable|image',
         ];
     }
 }

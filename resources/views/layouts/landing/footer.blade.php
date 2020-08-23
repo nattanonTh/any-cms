@@ -2,7 +2,7 @@
     <hr>
 
     <div class="row clear-bottommargin pt-5">
-        <div class="col-12 col-md-3 bottommargin clearfix">
+        <div class="col-md-12 col-lg-3 bottommargin clearfix">
             <div class="feature-box fbox-center fbox-bg fbox-plain">
                 <div class="fbox-icon">
                     <a href="https://www.google.com/maps?ll=14.991355,102.120842&z=13&t=m&hl=en&gl=TH&mapclient=embed&cid=15023846250679050858" target="_blank"><i class="icon-map-marker2"></i></a>
@@ -15,7 +15,7 @@
             </div>
         </div>
 
-        <div class="col-12 col-md-3 bottommargin clearfix">
+        <div class="col-md-12 col-lg-3 bottommargin clearfix">
             <div class="feature-box fbox-center fbox-bg fbox-plain">
                 <div class="fbox-icon">
                     <a href="tel:0986539889"><i class="icon-phone3"></i></a>
@@ -28,7 +28,7 @@
             </div>
         </div>
 
-        <div class="col-12 col-md-3 bottommargin clearfix">
+        <div class="col-md-12 col-lg-3 bottommargin clearfix">
             <div class="feature-box fbox-center fbox-bg fbox-plain">
                 <div class="fbox-icon">
                     <a href="https://www.facebook.com/doctorbigclinic/" target="_blank"><i class="icon-facebook"></i></a>
@@ -41,7 +41,7 @@
             </div>
         </div>
 
-        <div class="col-12 col-md-3 bottommargin clearfix">
+        <div class="col-md-12 col-lg-3 bottommargin clearfix">
             <div class="feature-box fbox-center fbox-bg fbox-plain">
                 <div class="fbox-icon">
                     <a href="https://lin.ee/6kPReXr" target="_blank"><i class="icon-line"></i></a>

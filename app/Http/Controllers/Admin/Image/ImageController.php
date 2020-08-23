@@ -40,15 +40,20 @@ class ImageController extends Controller
     {
         $values = $request->all();
         $files = $request->file('path');
+
         if ($request->hasFile('path')) {
-            $paths = $this->uploadImageService->uploadImagesWithThumbnail([$files], config('promotion.cover_path'));
-            $values['path'] = $paths->get('images')[0];
-            $values['thumb_path'] = $paths->get('thumbnails')[0];
-            $values['name'] = $files->hashName();
-            $values['type'] = $files->getMimeType();
-            $values['size'] = $files->getSize();
+            $paths = $this->uploadImageService->uploadImagesWithThumbnail($files, config('promotion.cover_path'));
+
+            foreach ($paths->get('images') as $index => $path) {
+                $values['path'] = $path;
+                $values['thumb_path'] = $paths->get('thumbnails')[$index];
+                $values['name'] = $files[$index]->hashName();
+                $values['type'] = $files[$index]->getMimeType();
+                $values['size'] = $files[$index]->getSize();
+
+                $this->imageRepo->create($values);
+            }
         }
-        $this->imageRepo->create($values);
 
         return redirect(route('image.listing'));
     }

@@ -21,7 +21,7 @@
 
                                 <div class="custom-file mb-3">
                                     <input type="file" class="custom-file-input @error('path') is-invalid @enderror"
-                                           id="path" name="path">
+                                           id="path" name="path[]" multiple>
                                     <label class="custom-file-label" for="customFile">Choose file</label>
                                 </div>
                                 <div style="width: 100%" class="align-content-center">
@@ -76,11 +76,15 @@
     <script>
 
         $(".custom-file-input").on("change", function() {
-            if(this.files[0].size > 5048580){
-                alert("Image file is too big.");
-                this.value = "";
-            } else {
-                var fileName = $(this).val().split("\\").pop();
+            let isValid = true;
+            jQuery.each(this.files, (index, item) => {
+                if (item.size > 5048580) {
+                    alert("Some Image file is too big.");
+                    isValid = false;
+                }
+            });
+            if (isValid) {
+                let fileName = $(this).val().split("\\").pop();
                 $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
                 previewImage('#preview', this);
             }

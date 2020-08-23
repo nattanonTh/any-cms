@@ -48,6 +48,17 @@
                         <img src="{{ asset('images/landing/DSCF7565.png') }}" alt="">
                     </div>
                 </div>
+                <div class="row pt-5">
+                    <div class="col-12 col-md-4">
+                        <img src="{{ asset('images/landing/DSCF4287.jpg') }}" alt="">
+                    </div>
+                    <div class="col-12 col-md-4">
+                        <img src="{{ asset('images/landing/DSCF9594.png') }}" alt="">
+                    </div>
+                    <div class="col-12 col-md-4">
+                        <img src="{{ asset('images/landing/IMG_9278.png') }}" alt="">
+                    </div>
+                </div>
             </div>
         </div>
 
